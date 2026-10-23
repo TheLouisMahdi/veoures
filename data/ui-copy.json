@@ -1,0 +1,52 @@
+{
+  "brand": "VEOURES",
+  "tagline": "A living form, shaped by us.",
+  "intro": "Touch it. Change it. Leave something behind.",
+  "tool": {
+    "draw_scar": {
+      "label": "Draw Scar",
+      "hint": "Drag across the body to leave a vein."
+    },
+    "seed_letter": {
+      "label": "Seed Letter",
+      "hint": "Plant a single letter. Watch it become anatomy."
+    },
+    "feed_word": {
+      "label": "Feed Word",
+      "hint": "Offer a word. The body interprets its form."
+    },
+    "add_limb": {
+      "label": "Add Limb",
+      "hint": "Give it a new direction to grow."
+    },
+    "feed_mass": {
+      "label": "Feed Mass",
+      "hint": "Add living volume to one region."
+    },
+    "heal": {
+      "label": "Heal",
+      "hint": "Ease a wound in this area."
+    },
+    "corrupt": {
+      "label": "Corrupt",
+      "hint": "Disturb the tissue with a new mark."
+    }
+  },
+  "preview": "Preview only. Nothing has been saved.",
+  "commit": "Commit change",
+  "cancel": "Cancel",
+  "success": "Your change is now part of it.",
+  "loading": "Connecting to the organism...",
+  "local": "LOCAL DEMO - Only this browser remembers.",
+  "shared": "SHARED ONLINE - Everyone sees committed changes.",
+  "offline": "Connection lost. Changes cannot be saved until reconnected.",
+  "daily": "Changes left today",
+  "quotaExceeded": "No changes left today. Return tomorrow (UTC).",
+  "archive": "What came before",
+  "emptyHistory": "No traces yet. Be the first.",
+  "soundOn": "Sound on",
+  "soundOff": "Sound off",
+  "motionOff": "Reduced motion enabled",
+  "help": "Select a tool, preview a change, then commit it.",
+  "mode": "Mode"
+}

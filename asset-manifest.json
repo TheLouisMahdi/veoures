@@ -1,0 +1,293 @@
+{
+  "project": "VEOURES",
+  "generator": "Original local procedural art + optional generative reference board",
+  "usage": "state WebPs are references; canvas geometry is authoritative",
+  "assets": [
+    {
+      "path": "assets/favicon.svg",
+      "bytes": 267,
+      "dimensions": null,
+      "sha256": "baed20a57cf7e53b20c04ecd4bd14177c809abd0cda66983599cbd71c6a5d01e"
+    },
+    {
+      "path": "images/overlays/droplet-overlay.png",
+      "bytes": 10754,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "3c9656c019d7776ecdbb31efb522330664f86129ce9ced753431dbcc2898fb31"
+    },
+    {
+      "path": "images/overlays/pulse-glow.png",
+      "bytes": 34271,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "0d38fd79fdf443688b312a1d26d9a8a30abc5b8659cf5ecdb059d68acfa6d8d6"
+    },
+    {
+      "path": "images/overlays/red-haze.png",
+      "bytes": 39621,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "e5743017dcae4396af9955cef2014b9db9b03b23f8c1234bf1708288fb8f2adf"
+    },
+    {
+      "path": "images/overlays/scar-overlay.png",
+      "bytes": 8451,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "2319614a96113baed0e31f3f6d47f9475b6f69898c431cbca6348ef7084799e5"
+    },
+    {
+      "path": "images/overlays/smoke-overlay.png",
+      "bytes": 42751,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "47bec01151fd6749bc18f58d6411ea06694ba428c7ef6b5f9fda015062ad0377"
+    },
+    {
+      "path": "images/states/awakened.webp",
+      "bytes": 17212,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "049879f5744c784acdf26a964f59c63d565397359349fe25959f8cceb3b1925f"
+    },
+    {
+      "path": "images/states/corrupted.webp",
+      "bytes": 20460,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "8760a063ff6fa1c624aedff50ceb5aecf1cb6157bf86f377d99f0e84992be45d"
+    },
+    {
+      "path": "images/states/dormant.webp",
+      "bytes": 12136,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "5161af6ded38e87ed79dcad6f54321a6712f5791cb33f10462cbc00705104843"
+    },
+    {
+      "path": "images/states/grown.webp",
+      "bytes": 13076,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "34bd55a5aee4963f5f666eb3e5eb17c9dcd7e8b6a4e1ae62d322e4078a85863e"
+    },
+    {
+      "path": "images/states/healed.webp",
+      "bytes": 16036,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "39deffff63f70fed6b55ca4b7f9ecdc1b9fcde3a768d7bc2fd626e857d424205"
+    },
+    {
+      "path": "images/states/high-pulse.webp",
+      "bytes": 23768,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "eccd136ddf41c40946e187ae55756a48096a1cc44a4b55211209221ab94a3c8f"
+    },
+    {
+      "path": "images/states/overgrown.webp",
+      "bytes": 20258,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "5c430e4d3386f335deba92e0a41e6c24cdaccfacec6af9cfe40591b7707fd438"
+    },
+    {
+      "path": "images/states/seed.webp",
+      "bytes": 6788,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "75016889a3601f2e749dffc21abc7997644c8e3767f8316827f8b5825deedb21"
+    },
+    {
+      "path": "images/states/wounded.webp",
+      "bytes": 17576,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "e743239146a90419f9bd8b32ccf04674149ca7d5d50224bb4defd5bb7bfa316e"
+    },
+    {
+      "path": "images/states/young.webp",
+      "bytes": 9376,
+      "dimensions": [
+        1100,
+        720
+      ],
+      "sha256": "023bc94086b8dda81643160578b070789df457db44a896135ac872248077615e"
+    },
+    {
+      "path": "images/textures/black-organic-skin.webp",
+      "bytes": 51028,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "75eb964b4a4a265caa14a1ee951ffb136ddfce626f5b81597b6322053cc0a5b6"
+    },
+    {
+      "path": "images/textures/crimson-veins.webp",
+      "bytes": 35650,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "449d2e7214255c7183bbe33e6de84e5ea3d459ba3ddc58b3802d772acc42843c"
+    },
+    {
+      "path": "images/textures/displacement-map.webp",
+      "bytes": 48188,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "7fac7672f74739166efe24ac9b2969cc2d879c7b2fa2037ebc62c5ee8a3f8ed7"
+    },
+    {
+      "path": "images/textures/glossy-noise.webp",
+      "bytes": 332802,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "45b2f57c599fa6b4b2be77fe927d9dfd75cf6909c72f2f62344627be23003de6"
+    },
+    {
+      "path": "images/textures/liquid-membrane.webp",
+      "bytes": 36756,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "1e3630b22b711e1a0427da86a0ea4c7578586c9aa5bcecc8265b1c6931eec4d6"
+    },
+    {
+      "path": "images/textures/pulse-map.webp",
+      "bytes": 34506,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "e01a052ca4479b1d5dcbd846240fda1af29b4134737b8032656912cc43f09a42"
+    },
+    {
+      "path": "images/textures/tendril-texture.webp",
+      "bytes": 31740,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "284b53baa76dd8669f9310abffa2cef3ffb845972f4794efdd5fc1336cf4ac64"
+    },
+    {
+      "path": "images/ui/logo-lockup.svg",
+      "bytes": 326,
+      "dimensions": null,
+      "sha256": "e4e6c1f5ffa8ddfead9d45ce78612225f5b42307626428736a3bed34a67667e6"
+    },
+    {
+      "path": "images/ui/panel-frame.svg",
+      "bytes": 226,
+      "dimensions": null,
+      "sha256": "9186d017a3c7d51750e04ae68aece1e10694c9f1e67b5cd7f932146082a81507"
+    },
+    {
+      "path": "images/ui/tool-corrupt.svg",
+      "bytes": 236,
+      "dimensions": null,
+      "sha256": "9e76955e09db5b7e1f2539313b6b3674c2e8e1810332f972f27e77ee42c836b3"
+    },
+    {
+      "path": "images/ui/tool-draw.svg",
+      "bytes": 194,
+      "dimensions": null,
+      "sha256": "eaa06298575fdffd53f49fa033eb5ba6275ea793ff67a83a26ea7f20e05f639c"
+    },
+    {
+      "path": "images/ui/tool-heal.svg",
+      "bytes": 192,
+      "dimensions": null,
+      "sha256": "1a873b7aefa8ef725ac32e4574b27edcf61afe8dbd36bc0bf7c649d408d21aa7"
+    },
+    {
+      "path": "images/ui/tool-letter.svg",
+      "bytes": 201,
+      "dimensions": null,
+      "sha256": "67354d8ddd07f12c2ad1248f5b03cf4bc887a5879ef81511ce7bb0ae01395544"
+    },
+    {
+      "path": "images/ui/tool-limb.svg",
+      "bytes": 207,
+      "dimensions": null,
+      "sha256": "daa92de462b4237878dc414a35947c2ce5817adabcf0461c3b5d9abcf92cefa8"
+    },
+    {
+      "path": "images/ui/tool-mass.svg",
+      "bytes": 213,
+      "dimensions": null,
+      "sha256": "16819e2e3ed69d56106c27273fb5f9e5d2858cde94dccb24dc51ff10dbf6ce38"
+    },
+    {
+      "path": "images/ui/tool-word.svg",
+      "bytes": 203,
+      "dimensions": null,
+      "sha256": "e3030425c7cdb2c43e9456b92eb4b684d712d61bef91be54be1a8f8bf8182508"
+    },
+    {
+      "path": "images/ui/wordmark.svg",
+      "bytes": 298,
+      "dimensions": null,
+      "sha256": "84bd26b8376ab3166738bb70cbda29f861b38dea013cdb0b5782d8c9f78bb26d"
+    },
+    {
+      "path": "assets/brand/social-card.png",
+      "bytes": 265456,
+      "dimensions": [
+        1200,
+        630
+      ],
+      "sha256": "70cc8524fbf575ca7a4604c05422aeb3e86d6e6e091197346a56cd2a0631aeb8",
+      "provenance": "VEOURES publication identity, rendered from the project Canvas organism and native HTML typography."
+    }
+  ],
+  "excludedAssets": [
+    {
+      "path": "references/visual-exploration-only.png",
+      "bytes": 2281544,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "55c44723c13bffacad8c4973251a2762d2657ef9acf092b384fc04fee6b4b3b0"
+    }
+  ],
+  "excludedAssetsNote": "Exploration board retained in the supplied pack only; not published or used as functional UI."
+}

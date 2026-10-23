@@ -1,0 +1,50 @@
+{
+  "love": {
+    "tone": "connective",
+    "hue": -8,
+    "curvature": 0.7,
+    "pulse": -0.08
+  },
+  "fear": {
+    "tone": "tense",
+    "hue": 6,
+    "curvature": 1.4,
+    "pulse": 0.12
+  },
+  "rage": {
+    "tone": "spiky",
+    "hue": 14,
+    "curvature": 1.8,
+    "pulse": 0.2
+  },
+  "hope": {
+    "tone": "luminous",
+    "hue": -20,
+    "curvature": 0.8,
+    "pulse": 0.04
+  },
+  "dark": {
+    "tone": "dense",
+    "hue": 0,
+    "curvature": 0.4,
+    "pulse": -0.03
+  },
+  "alive": {
+    "tone": "branching",
+    "hue": -8,
+    "curvature": 1.1,
+    "pulse": 0.16
+  },
+  "peace": {
+    "tone": "smooth",
+    "hue": -25,
+    "curvature": 0.55,
+    "pulse": -0.1
+  },
+  "pain": {
+    "tone": "fractured",
+    "hue": 16,
+    "curvature": 1.5,
+    "pulse": 0.13
+  }
+}

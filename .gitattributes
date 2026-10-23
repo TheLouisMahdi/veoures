@@ -1,0 +1,9 @@
+* text=auto eol=lf
+# Original media and supplied provenance keep exact source bytes.
+assets/** -text
+images/** -text
+audio/** -text
+docs/provenance/** -text
+*.png binary
+*.webp binary
+*.mp3 binary

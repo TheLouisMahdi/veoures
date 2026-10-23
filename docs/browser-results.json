@@ -1,0 +1,36 @@
+{
+  "reports": [
+    "local draw_scar: preview/cancel/commit/reload and visible anatomy PASS",
+    "local seed_letter: preview/cancel/commit/reload and visible anatomy PASS",
+    "local feed_word: preview/cancel/commit/reload and visible anatomy PASS",
+    "local add_limb: preview/cancel/commit/reload and visible anatomy PASS",
+    "local feed_mass: preview/cancel/commit/reload and visible anatomy PASS",
+    "local heal: preview/cancel/commit/reload and visible anatomy PASS",
+    "local corrupt: preview/cancel/commit/reload and visible anatomy PASS",
+    "local validation, healing, five/day quota PASS",
+    "320px: layout/targets/commit/dialog/reduced-motion/no initial MP3 PASS",
+    "390px: layout/targets/commit/dialog/reduced-motion/no initial MP3 PASS",
+    "768px: layout/targets/commit/dialog/reduced-motion/no initial MP3 PASS",
+    "1440px: layout/targets/commit/dialog/reduced-motion/no initial MP3 PASS",
+    "1920px: layout/targets/commit/dialog/reduced-motion/no initial MP3 PASS",
+    "mouse scar and keyboard-only position/preview/commit PASS",
+    "mobile touch canvas/explicit commit PASS",
+    "shared: seven UI tools, two isolated clients, identical replay, reload, offline lock, recovery and server quota PASS",
+    "lost fifth-commit response: ownership acknowledgment restores confirmation, clears preview, no duplicate/quota loss PASS",
+    "audio: no MP3 before opt-in; ambient/effects stop on disable/hidden; visibility resume PASS",
+    {
+      "cpuThrottle4x": {
+        "draws": 62,
+        "p95": 2.700000001117587,
+        "max": 3.199999999254942,
+        "taskSeconds": 0.56287,
+        "windowSeconds": 2.5141599999988102
+      }
+    }
+  ],
+  "errors": [
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "badResponses": []
+}

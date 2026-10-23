@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark"><meta name="theme-color" content="#050608">
+<title>VEOURES — One body. Many hands.</title>
+<meta name="description" content="A living form shaped by human traces. Draw, seed, grow and heal an evolving digital organism.">
+<link rel="canonical" href="https://thelouismahdi.github.io/veoures/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VEOURES">
+<meta property="og:title" content="VEOURES — One body. Many hands.">
+<meta property="og:description" content="A living form shaped by human traces. Leave a trace. Shape what comes next.">
+<meta property="og:url" content="https://thelouismahdi.github.io/veoures/">
+<meta property="og:image" content="https://thelouismahdi.github.io/veoures/assets/brand/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VEOURES. One body. Many hands. An original procedural organism with a crimson pulse.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VEOURES — One body. Many hands.">
+<meta name="twitter:description" content="A living form shaped by human traces. Leave a trace. Shape what comes next.">
+<meta name="twitter:image" content="https://thelouismahdi.github.io/veoures/assets/brand/social-card.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script src="engine/mutation-engine.js" defer></script>
+<script src="engine/organism-engine.js" defer></script>
+<script src="engine/renderer.js" defer></script>
+<script src="engine/sync-engine.js" defer></script>
+<script src="engine/audio-engine.js" defer></script>
+<script src="components/toolbar.js" defer></script>
+<script src="components/status-panel.js" defer></script>
+<script src="components/archive-panel.js" defer></script>
+<script src="components/contribution-modal.js" defer></script>
+<script src="components/onboarding.js" defer></script>
+<script src="script.js" defer></script>
+</head><body>
+<a class="skip-link" href="#organism">Skip to the organism</a>
+<div class="shell">
+<header class="site-header">
+  <a class="brand" href="./" aria-label="VEOURES home">VEOURES<span class="brand-dot">.</span><span class="mark">A COLLECTIVE ORGANISM</span></a>
+  <div class="actions"><button id="inspect" type="button" aria-haspopup="dialog">Inspect <span aria-hidden="true">↗</span></button><button id="sound" type="button" aria-pressed="false">Sound off</button><button id="help" type="button" aria-haspopup="dialog" aria-label="How it works">?</button></div>
+</header>
+<main id="organism" class="stage" tabindex="-1" aria-label="Living organism">
+  <canvas id="living-canvas" tabindex="0" aria-label="Living organism. Select a tool, then click or drag here. Use arrow keys to position a change and Enter to preview it. The form also offers position controls.">Your browser needs Canvas 2D to display the organism. Mutation tools remain described in Help.</canvas>
+  <div class="stage-heading"><span class="eyebrow">ONE BODY. MANY HANDS.</span><h1>A living form,<br><em>shaped by us.</em></h1></div>
+  <div class="specimen-label" aria-hidden="true"><span class="beacon"></span> VEOURES / 001 <span id="specimen-version">V.0000</span></div>
+  <div class="stage-caption"><span id="pulse">74</span><small>BPM</small><svg viewBox="0 0 130 24" aria-hidden="true"><path d="M0 14h32l5-3 5 5 6-4 6-10 7 21 7-12 5 3h57"/></svg><span class="caption-copy">IT REMEMBERS<br>WHAT WE LEAVE.</span></div>
+</main>
+<aside class="tools" aria-label="Mutation tools"><p class="eyebrow">LEAVE A TRACE</p><div id="toolbar" class="tool-stack" role="group" aria-label="Choose mutation"></div><div class="daily"><strong id="remaining">5</strong><span>CHANGES LEFT<br>TODAY / UTC</span></div></aside>
+<section class="composer" aria-labelledby="composer-heading"><form id="composer-form" novalidate>
+  <div class="composer-head"><div><p class="eyebrow">YOUR CONTRIBUTION <span id="compact-remaining">5 LEFT TODAY / UTC</span></p><h2 id="composer-heading" data-selected-tool>Draw Scar</h2></div><button type="button" id="composer-toggle" aria-expanded="true" aria-controls="composer-details" aria-label="Collapse contribution controls">−</button></div>
+  <div id="composer-details"><p id="tool-hint">Drag across the body to leave a vein.</p><fieldset id="composer-fields"><legend class="sr-only">Configure mutation</legend><div data-fields></div>
+    <details class="position-controls"><summary>Position & keyboard controls</summary><div class="position-inputs"><label>Horizontal<input id="position-x" type="range" min="0.1" max="0.9" step="0.01" value="0.5"></label><label>Vertical<input id="position-y" type="range" min="0.1" max="0.9" step="0.01" value="0.5"></label></div><button type="button" id="center">Place at center</button><p class="small">Or focus the body, use arrow keys, then Enter. Scar uses a short stroke around your chosen point.</p></details>
+    <p class="preview-note" data-preview-description>Preview only. Nothing has been saved.</p><div class="composer-buttons"><button type="button" id="preview">Preview</button><button type="button" id="cancel">Cancel</button><button type="submit" id="commit" class="primary" disabled>Commit change <span aria-hidden="true">↗</span></button></div>
+  </fieldset></div><p id="message" role="status" aria-live="polite"></p>
+</form></section>
+<footer class="site-footer"><div id="connection" role="status">Connecting to the organism…</div><span class="footer-note">EVERY ACCEPTED CHANGE BECOMES PART OF THE BODY.</span></footer>
+</div>
+<dialog id="inspector" class="inspector" aria-labelledby="inspector-title"><div class="panel-heading"><div><p class="eyebrow">A BODY WITH MEMORY</p><h2 id="inspector-title">What came before</h2></div><button id="inspect-close" type="button" aria-label="Close inspector">×</button></div><h3>Current status</h3><div id="status"></div><h3>Recent traces</h3><div id="archive"></div><p class="small">Select a trace to locate its region. Identity is never displayed.</p></dialog>
+<dialog id="help-overlay" class="help-dialog" aria-labelledby="help-title"><p class="eyebrow">WELCOME TO VEOURES</p><h2 id="help-title">A living form,<br>shaped by us.</h2><p>Choose a tool. Shape a preview. You can cancel without using a change.</p><p id="help-mode">Connecting to persistence…</p><p>Only accepted commits use one of your five changes per UTC day. Letters and words become anatomy, never text on the body. Meanings are yours to assign.</p><button type="button" id="help-close" class="primary">Enter VEOURES ↗</button></dialog>
+<noscript><div class="no-script">VEOURES needs JavaScript and Canvas 2D to render the organism and save changes. No contribution has been made.</div></noscript>
+</body></html>

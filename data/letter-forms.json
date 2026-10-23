@@ -1,0 +1,11 @@
+{
+  "strategy": "Unicode codepoint hash, not visual letter drawing",
+  "examples": {
+    "M": "forked",
+    "S": "curled",
+    "V": "bifurcated",
+    "م": "branching",
+    "س": "spiral"
+  },
+  "fallback": "stable seeded hash determines angle, branch length, rhythm"
+}

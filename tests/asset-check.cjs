@@ -1,0 +1,6 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+(async()=>{const manifest=JSON.parse(fs.readFileSync(path.join(root,'asset-manifest.json'),'utf8'));for(const asset of manifest.assets){const bytes=fs.readFileSync(path.join(root,asset.path));assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),asset.sha256,asset.path)}const urls=[...manifest.assets.map(a=>a.path),...fs.readdirSync(path.join(root,'audio')).map(f=>'audio/'+f),'index.html','style.css','script.js','data/ui-copy.json'];
+const bases=[process.env.STATIC_URL||'http://127.0.0.1:8002/',process.env.SHARED_URL||'http://127.0.0.1:8003/',process.env.SUBPATH_URL].filter(Boolean);for(const base of bases){for(const url of urls){const response=await fetch(new URL(url,base));assert.equal(response.status,200,new URL(url,base).href);await response.arrayBuffer()}console.log('PASS',base,urls.length,'root/asset URLs and original visual hashes')}assert(!fs.existsSync(path.join(root,'references')),'reference exploration board must not be deployed');
+})().catch(error=>{console.error(error);process.exitCode=1});

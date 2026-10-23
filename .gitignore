@@ -1,0 +1,20 @@
+# Runtime and private configuration
+.env
+.env.*
+.veoures-data/
+organism-data.json
+*.tmp
+*.log
+
+# Local dependencies and generated output
+node_modules/
+_site/
+playwright-report/
+test-results/
+coverage/
+
+# Editor / operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

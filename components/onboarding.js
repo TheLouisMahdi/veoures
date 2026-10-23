@@ -1,0 +1,1 @@
+(function(root){'use strict';root.VeouresOnboarding=function(button,dialog,closeButton){button.addEventListener('click',()=>dialog.showModal());closeButton.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>button.focus());return{open:()=>dialog.showModal(),close:()=>dialog.close()}};})(globalThis);

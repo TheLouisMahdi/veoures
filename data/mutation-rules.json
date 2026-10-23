@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "coordinateSpace": "normalized_0_1",
+  "maxDailyCommits": 5,
+  "maxWordCodepoints": 32,
+  "maxPathPoints": 40,
+  "maxLimbLength": 0.35,
+  "maxMassAmount": 0.09,
+  "caps": {
+    "mass": 320,
+    "limbs": 420,
+    "buds": 420,
+    "scars": 220,
+    "corruptions": 180
+  },
+  "persistence": {
+    "topology": "permanent until new epoch",
+    "scars": "semi-persistent styling; underlying event retained",
+    "motion": "runtime only; never persisted"
+  },
+  "toolTypes": [
+    "draw_scar",
+    "seed_letter",
+    "feed_word",
+    "add_limb",
+    "feed_mass",
+    "heal",
+    "corrupt"
+  ],
+  "limbKinds": [
+    "tendril",
+    "horn",
+    "tail",
+    "leg",
+    "wing"
+  ]
+}

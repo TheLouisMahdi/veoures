@@ -1,0 +1,7 @@
+{
+  "timeZone": "UTC",
+  "dailyAcceptedMutationsPerAnonymousIdentity": 5,
+  "note": "A browser token is an abuse deterrent, not secure identity. Add authentication/captcha for public launch.",
+  "maxPerRequestBytes": 16384,
+  "maxRecentItemsRendered": 30
+}

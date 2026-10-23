@@ -1,0 +1,87 @@
+{
+  "id": "veoures-001",
+  "epoch": 1,
+  "bornAt": "2026-10-23T00:00:00.000Z",
+  "version": 0,
+  "core": {
+    "x": 0.5,
+    "y": 0.5,
+    "r": 0.134
+  },
+  "mass": [],
+  "limbs": [
+    {
+      "id": "primordial-a",
+      "x": 0.47,
+      "y": 0.49,
+      "angle": -2.85,
+      "length": 0.29,
+      "kind": "tendril",
+      "curvature": 0.45
+    },
+    {
+      "id": "primordial-b",
+      "x": 0.51,
+      "y": 0.49,
+      "angle": -2.15,
+      "length": 0.27,
+      "kind": "tendril",
+      "curvature": -0.58
+    },
+    {
+      "id": "primordial-c",
+      "x": 0.51,
+      "y": 0.49,
+      "angle": -1.2,
+      "length": 0.24,
+      "kind": "tendril",
+      "curvature": 0.34
+    },
+    {
+      "id": "primordial-d",
+      "x": 0.54,
+      "y": 0.49,
+      "angle": -0.2,
+      "length": 0.31,
+      "kind": "tendril",
+      "curvature": -0.44
+    },
+    {
+      "id": "primordial-e",
+      "x": 0.53,
+      "y": 0.53,
+      "angle": 0.62,
+      "length": 0.28,
+      "kind": "tendril",
+      "curvature": 0.51
+    },
+    {
+      "id": "primordial-f",
+      "x": 0.48,
+      "y": 0.53,
+      "angle": 1.75,
+      "length": 0.25,
+      "kind": "tendril",
+      "curvature": -0.36
+    },
+    {
+      "id": "primordial-g",
+      "x": 0.47,
+      "y": 0.51,
+      "angle": 2.55,
+      "length": 0.33,
+      "kind": "tendril",
+      "curvature": 0.44
+    }
+  ],
+  "buds": [],
+  "scars": [],
+  "corruptions": [],
+  "mood": {
+    "tone": "curious",
+    "pulse": 0.42,
+    "hue": 0
+  },
+  "totalContributions": 0,
+  "recent": []
+}
