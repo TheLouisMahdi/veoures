@@ -1,0 +1,13 @@
+{
+  "url": "https://veoures.softaspen8.chatgpt.site/",
+  "version": 2,
+  "mode": "shared",
+  "anonymousBrowsers": 2,
+  "identicalState": true,
+  "survivesRedeployment": true,
+  "reload": true,
+  "previewCancelNoCommit": true,
+  "soundInitiallyOff": true,
+  "errors": [],
+  "bad": []
+}

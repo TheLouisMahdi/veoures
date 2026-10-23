@@ -34,4 +34,4 @@ Local publication checks pass for canonical URLs, all relative HTML references, 
 
 The Pages artifact contains only browser application files and media. It excludes server implementation, tests, repository metadata, documentation, reference artwork and private event data. Runtime store files remain outside the public directory and are ignored by Git. The GitHub repository includes server/test sources so the shared demo can be run independently.
 
-GitHub Pages runs **LOCAL DEMO - Only this browser remembers.** It does not run Node or synchronize visitors. The included Node server remains the actual shared implementation. A public synchronized service has not been deployed as part of this GitHub publication.
+GitHub Pages runs **LOCAL DEMO - Only this browser remembers.** It does not run Node or synchronize visitors. The included Node server remains the actual shared implementation. That initial GitHub-only publication did not deploy a public synchronized service. The subsequent public launch is documented in [PUBLIC_LAUNCH.md](PUBLIC_LAUNCH.md).

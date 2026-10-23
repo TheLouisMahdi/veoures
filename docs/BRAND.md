@@ -28,8 +28,9 @@ Use the original V-shaped favicon with its pulse core as the small mark (`assets
 
 ## Publication identity
 
-- URL: `https://thelouismahdi.github.io/veoures/`
-- Description: “A collective digital organism shaped by human traces. Procedural Canvas, seven mutation tools, and an optional shared Node server.”
+- Primary URL: `https://veoures.softaspen8.chatgpt.site/`
+- Local fallback: `https://thelouismahdi.github.io/veoures/?mode=local`
+- Description: “A shared living organism shaped by human traces. Procedural anatomy, seven mutation tools, and persistent collective changes.”
 - Topics: `generative-art`, `creative-coding`, `canvas`, `interactive-art`, `procedural-art`, `collaborative-art`, `vanilla-javascript`, `nodejs`, `github-pages`, `accessibility`.
 - Repository contact/author profile: `TheLouisMahdi`.
 

@@ -18,3 +18,7 @@ coverage/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Shared public runtime artifact and local databases
+_cloud/
+*.sqlite*

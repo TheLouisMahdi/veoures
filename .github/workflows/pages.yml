@@ -25,14 +25,18 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Check JavaScript syntax
         run: |
-          node -e "const fs=require('node:fs'),p=require('node:path'),c=require('node:child_process');function check(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name.startsWith('.')||e.name==='_site'||e.name==='node_modules')continue;const f=p.join(d,e.name);if(e.isDirectory())check(f);else if(/\.(c?js)$/.test(e.name))c.execFileSync(process.execPath,['--check',f],{stdio:'inherit'})}}check('.')"
+          node -e "const fs=require('node:fs'),p=require('node:path'),c=require('node:child_process');function check(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name.startsWith('.')||e.name==='_site'||e.name==='node_modules')continue;const f=p.join(d,e.name);if(e.isDirectory())check(f);else if(/\.(?:c|m)?js$/.test(e.name))c.execFileSync(process.execPath,['--check',f],{stdio:'inherit'})}}check('.')"
       - name: Verify deterministic organism
         run: node tests/reducer-check.cjs
       - name: Verify shared server
         run: node tests/server-smoke.cjs
+      - name: Package public shared Worker
+        run: node hosting/build.mjs
+      - name: Verify persistent public runtime
+        run: node hosting/tests.mjs
       - name: Package static local demo
         run: node scripts/build-static.cjs
       - name: Check publication artifact

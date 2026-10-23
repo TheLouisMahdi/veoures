@@ -1,5 +1,9 @@
 # Architecture
 
+## Public hosted edition
+
+The primary public site now uses the vanilla frontend with a dependency-free Worker and durable D1 event/session storage. Its source and schema are in `hosting/`; launch and live verification are recorded in `PUBLIC_LAUNCH.md`. Public access does not require an account or the owner's laptop. Atomic SQL enforces anonymous-session quotas, retries and network limits. The original Node/JSON adapter below remains a local fallback.
+
 ## State, geometry and rendering
 
 `engine/mutation-engine.js` is the authoritative pack-05 reducer, shared by browser and server. The server loads that exact file when serving this project; its fallback `server/vendor-mutation-engine.js` is kept byte-identical for isolated deployment/tests. Pack-04 JSON documents are retained as design data, not a second geometry implementation.
@@ -28,7 +32,7 @@ The server rejects invalid coordinates, oversized paths/text, unknown tools/kind
 
 One native HTMLAudio manager owns ambient and up to three effect voices (0.13 / 0.28 gain). It creates no media before opt-in. Accepted commits alone trigger their mapped effects. Generation counters protect pending playback from rapid toggles and visibility changes. Off/hidden pauses and clears effects as well as ambience. Sound preference is intentionally not persisted. This implementation uses one subtle ambient loop; optional state-loop crossfades and hover audio are not enabled.
 
-## Limits of this shared demo
+## Limits of the local Node/JSON demo
 
 This is a working single-process shared prototype. It uses polling and a bounded procedural anatomy, not a production collaboration platform. Anonymous local browser tokens are pseudonyms, not authentication: clearing storage or another profile can bypass the five/day identity boundary. Operators with filesystem access control the private event log. Mutation words remain in event payloads exposed by the public API, even though the visual body and trace list do not display them; do not enter private information.
 

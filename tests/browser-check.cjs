@@ -10,7 +10,7 @@ function watch(page){page.on('pageerror',e=>errors.push(e.message));page.on('con
 async function ready(page,url=local){await page.goto(url);await page.waitForFunction(()=>window.veoures&&['local','shared'].includes(veoures.sync.mode));}
 const stats=page=>page.evaluate(()=>({version:veoures.engine.state.version,count:veoures.sync.todayCount(),mode:veoures.sync.mode,preview:!!veoures.renderer.preview,canvas:VeouresMutation.hash(document.querySelector('canvas').toDataURL()),state:JSON.stringify(veoures.engine.state)}));
 async function choose(page,tool){await page.locator('[data-tool="'+tool+'"]').click();}
-async function commit(page,version){await page.locator('#commit').click();await page.waitForFunction(v=>veoures.engine.state.version===v,version);}
+async function commit(page,version){if(await page.evaluate(()=>veoures.sync.mode==='shared'))await page.waitForTimeout(750);await page.locator('#commit').click();await page.waitForFunction(v=>veoures.engine.state.version===v||document.getElementById('message').textContent.startsWith('Not confirmed:'),version);assert.equal(await page.evaluate(()=>veoures.engine.state.version),version,await page.locator('#message').textContent());}
 async function main(){browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
  // Every tool: rendered preview, cancellation, canonical mutation, persistence, no preview quota.
  let context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'}),page=await context.newPage();watch(page);await ready(page);
