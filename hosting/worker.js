@@ -37,7 +37,7 @@ async function readOrganism(request,db,url){
     db.prepare('SELECT id,version,type,payload,created_at FROM events WHERE version>? ORDER BY version').bind(since),
     db.prepare('SELECT id,created_at,request_id FROM events WHERE visitor=? AND created_at>=? ORDER BY version').bind(who?.id||'',day)
   ]);
-  return json(200,{epoch:1,version:head.results[0].version,events:events.results.map(publicEvent),owned:owned.results.map(r=>({id:r.id,createdAt:r.created_at,requestId:r.request_id})),canContribute:!!who},who?.cookie?{'Set-Cookie':who.cookie}:{});
+  return json(200,{epoch:1,serverTime:now,version:head.results[0].version,events:events.results.map(publicEvent),owned:owned.results.map(r=>({id:r.id,createdAt:r.created_at,requestId:r.request_id})),canContribute:!!who},who?.cookie?{'Set-Cookie':who.cookie}:{});
 }
 async function commit(request,db,url){
   if(request.headers.get('Origin')!==url.origin||request.headers.get('Sec-Fetch-Site')==='cross-site')return json(403,{error:'Open VEOURES directly to contribute.'});

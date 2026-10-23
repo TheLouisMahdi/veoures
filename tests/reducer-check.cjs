@@ -10,3 +10,13 @@ for(const [type,payload]of Object.entries(fixtures)){const x=mutation.seed(),y=m
 for(const letter of ['م','é','क्‍ष']){if(letter.includes('\u200d'))continue;assert.equal(mutation.normalize('seed_letter',{x:.5,y:.5,letter}).letter,letter.normalize('NFC'))}
 for(const payload of [{x:.5,y:.5,letter:'AB'},{x:.5,y:.5,letter:'1'},{x:NaN,y:.5,letter:'A'}])assert.throws(()=>mutation.normalize('seed_letter',payload));
 console.log('PASS 10,000-event deterministic browser/server replay, bounded topology, strict ordering, preview/commit geometry and Unicode validation');
+
+const accepted=Date.parse('2026-10-24T10:00:00Z');
+for(const type of ['draw_scar','feed_mass','leave_text']){
+ const x=mutation.seed();const payload=type==='leave_text'?{x:.64,y:.62,text:'ردی از ما — together'}:fixtures[type];mutation.apply(x,{id:'age-check',version:1,type,payload,createdAt:new Date(accepted).toISOString()});
+ const item=x[type==='draw_scar'?'scars':type==='feed_mass'?'mass':'texts'][0];assert.equal(mutation.life(item,accepted),1);assert(mutation.life(item,accepted+7200000)>.3);assert(mutation.life(item,accepted+7200000)<.5);assert.equal(mutation.life(item,accepted+mutation.LIFETIME),0);assert.equal(mutation.life(item,accepted-1000),1);assert.equal(x.recent.length,1);
+}
+assert.equal(mutation.normalize('leave_text',{x:.6,y:.6,text:'  سلام   دنیا  '}).text,'سلام دنیا');
+for(const text of ['', '<script>', 'a'.repeat(81), 'unsafe\u202e', 'unsafe\u0000'])assert.throws(()=>mutation.normalize('leave_text',{x:.6,y:.6,text}));
+assert.deepEqual(mutation.ACTIVE_TYPES,['draw_scar','feed_mass','leave_text']);
+console.log('PASS three active tools, Persian text validation, deterministic timestamps and 0/2/4-hour visual ageing; event history retained');

@@ -15,3 +15,18 @@
 
 #compact-remaining{display:none;color:#ebbdce;letter-spacing:.04em;margin-left:9px}@media(max-width:1050px){#compact-remaining{display:inline}}
 @media(min-width:701px) and (max-height:800px){.tools{margin-top:150px;margin-bottom:85px}.daily{margin-top:12px;padding-top:10px}.tool-stack{gap:0}.stage-heading,.specimen-label{top:109px}.stage-heading h1{font-size:27px}.stage-heading .eyebrow{margin-bottom:8px}}
+
+/* Three deliberate tools, and an independent microscope for the writing corner. */
+textarea{font:inherit;min-height:66px;width:100%;resize:vertical;background:#100d14;color:var(--text);border:1px solid #776273;border-radius:6px;padding:10px;line-height:1.6}
+.view-controls{position:fixed;z-index:3;left:50%;transform:translateX(-50%);bottom:72px;display:flex;align-items:center;gap:5px;padding:5px;border:1px solid #65505f55;border-radius:30px;background:#0c0910e8;max-width:calc(100% - 32px)}
+.view-controls button{font-size:10px;border-radius:24px;padding:8px 12px;background:transparent;border-color:transparent;white-space:nowrap}.view-controls output{font-size:10px;min-width:39px;text-align:center;color:#c4acbd;font-variant-numeric:tabular-nums}.view-controls #zoom-in,.view-controls #zoom-out{font-size:20px;padding:4px}
+#pan-view[aria-pressed=true]{background:#5c273c77;border-color:#ab5476}.is-navigating #living-canvas{cursor:grab}.is-navigating #living-canvas:active{cursor:grabbing}
+#text-note{margin:0;font-size:10px;line-height:1.6}@media(min-width:701px){.tools{width:160px}}.tool-stack{gap:7px}.daily{margin-top:22px}.stage-heading h1{font-weight:350}
+@media(min-width:701px) and (max-width:1350px){.view-controls{left:24px;transform:none;bottom:68px}.stage-caption{bottom:132px}.view-controls button{padding-inline:9px}}
+@media(max-width:700px){.tool-stack{justify-content:center;overflow:visible;gap:8px}.tool{flex:1;max-width:110px}.view-controls{bottom:auto;top:175px;gap:1px;padding:3px;width:max-content}.view-controls button{padding:6px 8px;font-size:9px}.view-controls #pan-view{font-size:0}.view-controls #pan-view::after{content:'Move';font-size:9px}.view-controls #reset-view{display:none}.view-controls output{min-width:34px;font-size:9px}.stage-caption{bottom:190px}.stage-heading{top:91px}.stage-heading h1{font-size:23px}.stage-heading .eyebrow{margin-bottom:8px}.specimen-label{top:98px}.composer{max-height:calc(100svh - 250px)}}
+@media(prefers-contrast:more){.view-controls{background:#08060c;border-color:#cbb4c6}textarea{border-color:#d1bdd0}}
+@media(forced-colors:active){.view-controls,textarea{background:Canvas;color:CanvasText}}
+
+button,a,input,textarea,summary{touch-action:manipulation}
+
+button:active:not(:disabled){background-color:#35212f;border-color:#cb7697}

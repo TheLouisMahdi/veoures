@@ -5,37 +5,21 @@
   "tool": {
     "draw_scar": {
       "label": "Draw Scar",
-      "hint": "Drag across the body to leave a vein."
-    },
-    "seed_letter": {
-      "label": "Seed Letter",
-      "hint": "Plant a single letter. Watch it become anatomy."
-    },
-    "feed_word": {
-      "label": "Feed Word",
-      "hint": "Offer a word. The body interprets its form."
-    },
-    "add_limb": {
-      "label": "Add Limb",
-      "hint": "Give it a new direction to grow."
+      "hint": "Draw a soft cut. After you commit, black threads pull it beneath the skin."
     },
     "feed_mass": {
       "label": "Feed Mass",
-      "hint": "Add living volume to one region."
+      "hint": "Choose a region. Watch living droplets merge with the body."
     },
-    "heal": {
-      "label": "Heal",
-      "hint": "Ease a wound in this area."
-    },
-    "corrupt": {
-      "label": "Corrupt",
-      "hint": "Disturb the tissue with a new mark."
+    "leave_text": {
+      "label": "Write Trace",
+      "hint": "Leave small words in the writing corner. Zoom in to discover them."
     }
   },
   "preview": "Preview only. Nothing has been saved.",
   "commit": "Commit change",
   "cancel": "Cancel",
-  "success": "Your change is now part of it.",
+  "success": "Received. It will slowly dissolve over four hours.",
   "loading": "Connecting to the organism...",
   "local": "LOCAL DEMO - Only this browser remembers.",
   "shared": "SHARED ONLINE - Everyone sees committed changes.",

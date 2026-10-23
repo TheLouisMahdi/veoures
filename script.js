@@ -7,13 +7,47 @@ const sync=new VeouresSyncClient(engine,update,mode=>{const previous=$('connecti
 function expand(open){$('composer-details').hidden=!open;$('composer-toggle').setAttribute('aria-expanded',String(open));$('composer-toggle').setAttribute('aria-label',open?'Collapse contribution controls':'Expand contribution controls');$('composer-toggle').textContent=open?'−':'+';document.querySelector('.composer').classList.toggle('is-collapsed',!open)}
 function preview(){if(pending)return null;try{const data=VeouresMutation.normalize(tool,VeouresComposer(form,tool,point,path));renderer.setPreview(tool,data);hasPreview=true;$('commit').disabled=!allowed();show(sync.canContribute===false?'Contributions are paused for this network. You can still explore the body.':sync.todayCount()>=5?copy.quotaExceeded:copy.preview);return data}catch(error){renderer.preview=null;renderer.refresh();hasPreview=false;$('commit').disabled=true;show(error.message);return null}}
 function cancel(){if(pending)return;renderer.preview=null;renderer.inspected=null;renderer.refresh();hasPreview=false;path=null;drag=null;$('commit').disabled=true;show('Preview cancelled. No change used.')}
-VeouresToolbar($('toolbar'),type=>{if(pending)return;tool=type;cancel();VeouresComposer(form,tool,point,path);$('composer-heading').textContent=copy.tool[tool].label;$('tool-hint').textContent=copy.tool[tool].hint;show('');expand(true)},copy);
-$('preview').addEventListener('click',preview);$('cancel').addEventListener('click',cancel);$('composer-toggle').addEventListener('click',()=>expand($('composer-details').hidden));$('center').addEventListener('click',()=>{point={x:.5,y:.5};$('position-x').value=.5;$('position-y').value=.5;path=null;preview()});
+VeouresToolbar($('toolbar'),type=>{if(pending)return;tool=type;cancel();if(renderer)navigation(false);VeouresComposer(form,tool,point,path);$('composer-heading').textContent=copy.tool[tool].label;$('tool-hint').textContent=copy.tool[tool].hint;show('');expand(true)},copy);
+$('preview').addEventListener('click',()=>{const data=preview();if(data&&tool==='leave_text')renderer.focusText()});$('cancel').addEventListener('click',cancel);$('composer-toggle').addEventListener('click',()=>expand($('composer-details').hidden));$('center').addEventListener('click',()=>{point={x:.5,y:.5};$('position-x').value=.5;$('position-y').value=.5;path=null;preview()});
 form.addEventListener('input',event=>{if(pending)return;if(event.target.id==='position-x'||event.target.id==='position-y'){point={x:Number($('position-x').value),y:Number($('position-y').value)};path=null}if(hasPreview)preview()});
-const canvas=$('living-canvas');canvas.addEventListener('pointerdown',event=>{if(pending||event.button!==0)return;point=renderer.locate(event);$('position-x').value=point.x;$('position-y').value=point.y;renderer.inspected=null;canvas.setPointerCapture(event.pointerId);if(tool==='draw_scar'){renderer.preview=null;hasPreview=false;$('commit').disabled=true;renderer.refresh();drag=event.pointerId;path=[point]}else{path=null;preview();expand(true)}});
-canvas.addEventListener('pointermove',event=>{if(drag!==event.pointerId||!path||pending)return;const p=renderer.locate(event);if(Math.hypot(p.x-path.at(-1).x,p.y-path.at(-1).y)>.004)path.push(p);if(path.length>40)path=path.filter((_,i)=>i%2===0);if(path.length>=2)preview()});
-canvas.addEventListener('pointerup',event=>{if(drag!==event.pointerId)return;drag=null;if(path?.length<2)path=null;preview();expand(true)});canvas.addEventListener('pointercancel',cancel);
-canvas.addEventListener('keydown',event=>{if(pending)return;const deltas={ArrowLeft:[-.025,0],ArrowRight:[.025,0],ArrowUp:[0,-.025],ArrowDown:[0,.025]};if(deltas[event.key]){event.preventDefault();point={x:Math.max(.02,Math.min(.98,point.x+deltas[event.key][0])),y:Math.max(.02,Math.min(.98,point.y+deltas[event.key][1]))};path=null;preview()}else if(event.key==='Enter'||event.key===' '){event.preventDefault();preview();expand(true);$('commit').focus()}});
+const canvas=$('living-canvas'),pointers=new Map();let pinch=null,panDrag=null,gesture=false;
+function navigation(on){renderer.navigation=on;document.body.classList.toggle('is-navigating',on);$('pan-view').setAttribute('aria-pressed',String(on));renderer.pointer=null}
+renderer.onView=()=>{$('zoom-level').textContent=Math.round(renderer.zoom*100)+'%';$('zoom-out').disabled=renderer.zoom<=1;$('zoom-in').disabled=renderer.zoom>=8};renderer.onView();
+$('zoom-in').addEventListener('click',()=>renderer.setZoom(renderer.zoom*1.35));$('zoom-out').addEventListener('click',()=>renderer.setZoom(renderer.zoom/1.35));$('reset-view').addEventListener('click',()=>{renderer.resetView();navigation(false)});
+$('pan-view').addEventListener('click',()=>navigation(!renderer.navigation));$('read-traces').addEventListener('click',()=>{renderer.focusText();navigation(true);expand(false);show('Writing corner. Zoom in, then drag to explore. Inspector also lists recent words.')});
+canvas.addEventListener('wheel',event=>{if(pending)return;event.preventDefault();renderer.setZoom(renderer.zoom*Math.exp(-event.deltaY*.0015),renderer.screen(event))},{passive:false});
+const pinchInfo=()=>{const [a,b]=[...pointers.values()];return{distance:Math.max(1,Math.hypot(a.x-b.x,a.y-b.y)),x:(a.x+b.x)/2,y:(a.y+b.y)/2}};
+canvas.addEventListener('pointerdown',event=>{
+ if(pending||event.button!==0)return;const screen=renderer.screen(event);pointers.set(event.pointerId,screen);canvas.setPointerCapture(event.pointerId);
+ if(pointers.size===2){gesture=true;drag=null;panDrag=null;cancel();pinch=pinchInfo();return}
+ if(renderer.navigation){panDrag=screen;return}
+ point=renderer.locate(event);$('position-x').value=point.x;$('position-y').value=point.y;renderer.inspected=null;renderer.pointer=null;
+ if(tool==='draw_scar'){renderer.preview=null;hasPreview=false;$('commit').disabled=true;renderer.refresh();drag=event.pointerId;path=[point]}
+ else{path=null;preview();expand(true)}
+});
+canvas.addEventListener('pointermove',event=>{
+ const screen=renderer.screen(event);if(pointers.has(event.pointerId))pointers.set(event.pointerId,screen);
+ if(pointers.size>=2&&pinch){const next=pinchInfo();renderer.setZoom(renderer.zoom*next.distance/pinch.distance,{x:pinch.x,y:pinch.y});renderer.moveView(next.x-pinch.x,next.y-pinch.y);pinch=next;return}
+ if(gesture)return;
+ if(panDrag&&renderer.navigation){renderer.moveView(screen.x-panDrag.x,screen.y-panDrag.y);panDrag=screen;return}
+ if(event.pointerType!=='touch')renderer.pointer=renderer.world(event);
+ if(drag!==event.pointerId||!path||pending)return;
+ const p=renderer.locate(event);if(Math.hypot(p.x-path.at(-1).x,p.y-path.at(-1).y)>.003)path.push(p);
+ if(path.length>40)path=path.filter((_,i)=>i%2===0);if(path.length>=2)preview();
+});
+canvas.addEventListener('pointerleave',()=>{renderer.pointer=null;renderer.pointerFollow=null});
+canvas.addEventListener('pointerup',event=>{
+ pointers.delete(event.pointerId);panDrag=null;if(gesture){if(!pointers.size){gesture=false;pinch=null}return}
+ if(drag!==event.pointerId)return;drag=null;if(path?.length<2)path=null;preview();expand(true);
+});
+canvas.addEventListener('pointercancel',()=>{pointers.clear();pinch=null;panDrag=null;gesture=false;cancel()});
+canvas.addEventListener('keydown',event=>{
+ if(pending)return;
+ if(['+','=','-','0'].includes(event.key)){event.preventDefault();if(event.key==='0'){renderer.resetView();navigation(false)}else renderer.setZoom(renderer.zoom*(event.key==='-'?1/1.35:1.35));return}
+ const deltas={ArrowLeft:[-.025,0],ArrowRight:[.025,0],ArrowUp:[0,-.025],ArrowDown:[0,.025]};
+ if(deltas[event.key]){event.preventDefault();if(renderer.navigation){renderer.moveView(-deltas[event.key][0]*1600,-deltas[event.key][1]*1600);return}point={x:Math.max(.02,Math.min(.98,point.x+deltas[event.key][0])),y:Math.max(.02,Math.min(.98,point.y+deltas[event.key][1]))};path=null;preview()}
+ else if(event.key==='Enter'||event.key===' '){event.preventDefault();if(!renderer.navigation){preview();expand(true);$('commit').focus()}}
+});
 form.addEventListener('submit',async event=>{event.preventDefault();if(pending)return;if(!hasPreview){show('Preview your change before committing.');return}const data=preview();if(!data)return;if(!allowed()){show(sync.todayCount()>=5?copy.quotaExceeded:copy.offline);return}const committedTool=tool;pending=true;$('composer-fields').disabled=true;document.querySelectorAll('[data-tool]').forEach(b=>b.disabled=true);$('commit').disabled=true;show(sync.mode==='shared'?'Waiting for server confirmation…':'Saving in this browser…');try{const accepted=await sync.commit(committedTool,data);renderer.preview=null;hasPreview=false;path=null;audio.play(committedTool);show(engine.state.version<accepted.version?'Accepted by the server. Waiting to synchronize its geometry.':sync.mode==='local'?'Saved in this browser. Your change is part of this local body.':copy.success);if(innerWidth<700)expand(false)}catch(error){show('Not confirmed: '+error.message)}finally{pending=false;$('composer-fields').disabled=false;document.querySelectorAll('[data-tool]').forEach(b=>b.disabled=false);update()}});
 $('sound').addEventListener('click',async()=>{const request=audio.toggle();$('sound').textContent=audio.enabled?copy.soundOn:copy.soundOff;$('sound').setAttribute('aria-pressed',String(audio.enabled));const on=await request;$('sound').textContent=on?copy.soundOn:copy.soundOff;$('sound').setAttribute('aria-pressed',String(on));if(!on&&audio.ambient===null)show('Sound off.')});
 VeouresOnboarding($('help'),$('help-overlay'),$('help-close'));$('inspect').addEventListener('click',()=>{$('inspector').showModal()});$('inspect-close').addEventListener('click',()=>$('inspector').close());$('inspector').addEventListener('close',()=>$('inspect').focus());document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!$('help-overlay').open&&!$('inspector').open)cancel()});

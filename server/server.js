@@ -87,7 +87,7 @@ const server = http.createServer(async (req, res) => {
     const today = new Date().toISOString().slice(0, 10);
     const owned = token ? (db.visitors[token]?.day === today ? db.events.filter(e => e.visitor === token && e.createdAt.startsWith(today)).map(({ id, createdAt, requestId }) => ({ id, createdAt, ...(requestId ? {requestId} : {}) })) : []) : [];
     return send(res, 200, {
-      epoch: db.epoch, version: db.events.length,
+      epoch: db.epoch, serverTime: Date.now(), version: db.events.length,
       events: db.events.filter(e => e.version > since).map(({ visitor: _visitor, requestId: _requestId, ...publicEvent }) => publicEvent),
       owned
     });

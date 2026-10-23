@@ -5,9 +5,12 @@
   root.VeouresMutation = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  const TYPES = ['draw_scar', 'seed_letter', 'feed_word', 'add_limb', 'feed_mass', 'heal', 'corrupt'];
+  // Legacy types remain replayable. The interface offers these three contribution tools.
+  const ACTIVE_TYPES = ['draw_scar', 'feed_mass', 'leave_text'];
+  const TYPES = ['draw_scar', 'seed_letter', 'feed_word', 'add_limb', 'feed_mass', 'heal', 'corrupt', 'leave_text'];
+  const LIFETIME = 4 * 60 * 60 * 1000;
   const KINDS = ['tendril', 'horn', 'tail', 'leg', 'wing'];
-  const CAPS = { limbs: 420, mass: 320, buds: 420, scars: 220, corruptions: 180 };
+  const CAPS = { limbs: 420, mass: 320, buds: 420, scars: 220, corruptions: 180, texts: 24 };
   const MOODS = {
     love: ['connective', -.08, -8], fear: ['tense', .12, 6],
     rage: ['spiky', .20, 14], hope: ['luminous', .04, -20],
@@ -40,6 +43,11 @@
     }
     if (!point(payload)) throw new Error('Choose a point on the organism');
     const at = { x: +payload.x.toFixed(4), y: +payload.y.toFixed(4) };
+    if (type === 'leave_text') {
+      const text = typeof payload.text === 'string' ? payload.text.normalize('NFC').trim().replace(/\s+/gu, ' ') : '';
+      if (!text || Array.from(text).length > 80 || /[<>\p{Cc}\p{Cs}\p{Co}\p{Cn}\u202a-\u202e\u2066-\u2069]/u.test(text)) throw new Error('Write 1–80 characters without markup or control characters');
+      return { ...at, text };
+    }
     if (type === 'seed_letter') {
       const letter = typeof payload.letter === 'string' ? payload.letter.trim().normalize('NFC') : '';
       const graphemes = typeof Intl !== 'undefined' && Intl.Segmenter
@@ -76,7 +84,7 @@
         { id: 'primordial-f', x: 0.48, y: 0.53, angle: 1.75, length: 0.25, kind: 'tendril', curvature: -0.36 },
         { id: 'primordial-g', x: 0.47, y: 0.51, angle: 2.55, length: 0.33, kind: 'tendril', curvature: 0.44 },
       ],
-      buds: [], scars: [], corruptions: [],
+      buds: [], scars: [], corruptions: [], texts: [],
       mood: { tone: 'curious', pulse: .42, hue: 0 },
       totalContributions: 0, recent: []
     };
@@ -98,8 +106,12 @@
     const jitter = hash(event.type + JSON.stringify(payload)) / 4294967295;
     const x = payload.x ?? payload.path?.[0].x ?? .5;
     const y = payload.y ?? payload.path?.[0].y ?? .5;
+    state.texts ||= [];
+    const createdAt = event.createdAt || new Date(0).toISOString();
     if (event.type === 'draw_scar') {
       state.scars.push({ id, path: payload.path, intensity: 1 });
+    } else if (event.type === 'leave_text') {
+      state.texts.push({ id, x, y, text: payload.text });
     } else if (event.type === 'seed_letter' || event.type === 'feed_word') {
       const word = payload.letter || payload.word;
       const v = hash(word.toLowerCase());
@@ -120,12 +132,24 @@
     } else if (event.type === 'corrupt') {
       state.corruptions.push({ id, x, y, radius: .025 + jitter * .03, intensity: 1 });
     }
-    for (const key of Object.keys(CAPS)) bounded(state[key], CAPS[key]);
+    for (const key of Object.keys(CAPS)) {
+      const last = state[key].at(-1);
+      if (last?.id === id) last.createdAt = createdAt;
+      bounded(state[key], CAPS[key]);
+    }
     state.version = event.version;
     state.totalContributions += 1;
-    state.recent.unshift({ id, type: event.type, x, y, createdAt: event.createdAt || new Date(0).toISOString() });
+    state.recent.unshift({ id, type: event.type, x, y, createdAt, ...(payload.text ? { text: payload.text } : {}) });
     state.recent.length = Math.min(state.recent.length, 30);
     return state;
   }
-  return { TYPES, KINDS, normalize, apply, seed, clone, hash };
+  // Presentation ages; the accepted event log is never deleted or rewritten.
+  function life(item, now = Date.now()) {
+    if (!item.createdAt || item.id === 'preview') return 1;
+    const age = Math.max(0, now - Date.parse(item.createdAt));
+    if (!Number.isFinite(age)) return 0;
+    const p = Math.min(1, age / LIFETIME);
+    return Math.pow(1 - p, 1.35);
+  }
+  return { TYPES, ACTIVE_TYPES, LIFETIME, life, KINDS, normalize, apply, seed, clone, hash };
 });

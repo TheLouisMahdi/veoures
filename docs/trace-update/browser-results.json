@@ -1,0 +1,24 @@
+{
+  "reports": [
+    "320px: three tools, targets, no overflow, reduced motion, no MP3, text zoom and accessible inspector PASS",
+    "390px: three tools, targets, no overflow, reduced motion, no MP3, text zoom and accessible inspector PASS",
+    "768px: three tools, targets, no overflow, reduced motion, no MP3, text zoom and accessible inspector PASS",
+    "1440px: three tools, targets, no overflow, reduced motion, no MP3, text zoom and accessible inspector PASS",
+    "1920px: three tools, targets, no overflow, reduced motion, no MP3, text zoom and accessible inspector PASS",
+    "all tools: preview/cancel/commit/reload; text validation; quota; deterministic 0/2/4-hour ageing without history deletion PASS",
+    "mouse scar; keyboard preview/commit/zoom/reset; pan never contributes; transformed input coordinates PASS",
+    "touch pinch cancels partial scar without quota; touch drawing and explicit commit PASS",
+    "public Worker: two-client identical state, live reactions once, quiet reload, offline rejection retains preview and quota PASS",
+    {
+      "cpuThrottle4x": {
+        "draws": 64,
+        "p95": 9.699999999254942,
+        "max": 10.899999998509884,
+        "dpr": 1.5
+      }
+    },
+    "sound off initially; opt-in/off; hidden RAF stops; DPR cap PASS"
+  ],
+  "errors": [],
+  "httpErrors": []
+}

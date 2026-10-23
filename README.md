@@ -2,7 +2,7 @@
 
 **One body. Many hands.**
 
-A living digital organism shaped by human traces. Draw a scar, plant a letter, offer a word, grow a limb, feed mass, heal or disturb its tissue. Every accepted change becomes anatomy. Visitors decide what it means.
+A living digital organism shaped by human traces. Draw a scar, feed living mass, or write a tiny trace in a corner of the body. Accepted traces merge with the organism and visually dissolve over four hours. Their shared history remains. Visitors decide what it means.
 
 [Enter the shared organism](https://veoures.softaspen8.chatgpt.site/) · [Local fallback](https://thelouismahdi.github.io/veoures/?mode=local) · [Run a shared organism](#run-a-shared-organism) · [Brand guide](docs/BRAND.md) · [Architecture](docs/ARCHITECTURE.md)
 
@@ -13,7 +13,7 @@ The public site is live and shared: every visitor shapes the same persistent org
 ## What lives here
 
 - Procedural Canvas 2D anatomy, with breathing, tapered limbs, glossy tissue, growth and healing.
-- Seven mutation tools with visible previews, cancellation and an explicit commit. Previews spend no quota; accepted commits are limited to five per browser per UTC day.
+- Three contribution tools — Draw Scar, Feed Mass and Write Trace — with visible previews, cancellation and an explicit commit. Previews spend no quota; accepted commits are limited to five per browser per UTC day.
 - Pointer, touch and keyboard positioning; native dialogs, visible focus, high-contrast support and reduced motion.
 - Optional original ambient audio and tool feedback. Sound starts off; no audio is requested before opt-in.
 - Persistent local history or an ordered shared event log, with idempotent commits and connection recovery.
@@ -55,9 +55,11 @@ Keep `VEOURES_DATA_FILE` outside the public directory, on persistent disk. The s
 
 ## Interact
 
-Choose a tool and a point, preview, then **Commit change**. Cancel or Escape discards the preview. On mobile, collapse the controls to see the body and swipe the tool rail to reach all seven tools. For keyboard positioning, focus the canvas, use arrows, then Enter; sliders are also available under **Position & keyboard controls**. Inspector shows current status and the latest 30 traces.
+Choose a tool and a point, preview, then **Commit change**. Cancel or Escape discards the preview. On mobile, collapse the controls to see the body. All three tools remain in the bottom rail. For keyboard positioning, focus the canvas, use arrows, then Enter; sliders are also available under **Position & keyboard controls**. Inspector shows current status and the latest 30 traces.
 
-Letters and words morph tissue rather than appearing as graffiti. Sound is off on every visit and stops when disabled or the tab becomes hidden.
+Writing stays tiny in a corner of the body. Choose **Read traces** to focus it, then use +/−, the mouse wheel or a two-finger pinch to zoom (1×–8×). **Move view** enables dragging without contributing; reset with 0 while the canvas is focused, or zoom out to 100%. Recent writing is also readable in Inspector. Text accepts 1–80 characters, including Persian. It is public.
+
+After acceptance, scars are pulled into the skin by black threads, mass droplets merge, and writing settles into tissue. Visible traces dissolve over four hours from the server timestamp, including time spent away. The event log is retained; visual disappearance is not data deletion. Reduced motion shows the final absorbed state immediately and refreshes slow ageing every 30 seconds. Sound is off on every visit and stops when disabled or the tab becomes hidden.
 
 ## Publish
 
@@ -77,7 +79,7 @@ node hosting/build.mjs
 node hosting/tests.mjs
 ```
 
-Browser tests can use an existing Playwright installation: set `PLAYWRIGHT_MODULE`, `CHROME_PATH`, `STATIC_URL`, `SHARED_URL` and optionally `QA_OUTPUT`, then run `node tests/browser-check.cjs`. Start both servers first and use disposable shared data; the test commits real mutations. `tests/asset-check.cjs` verifies running asset URLs, including optional `SUBPATH_URL`.
+Browser tests can use an existing Playwright installation: set `PLAYWRIGHT_MODULE`, `CHROME_PATH`, `STATIC_URL`, `SHARED_URL` and optionally `QA_OUTPUT`, then run `node tests/browser-check.cjs`. Start both servers first and use disposable shared data; the test commits real mutations. For the isolated public Worker test server (Node 24), build with `node hosting/build.mjs` and run `node tests/preview-worker.mjs` on port 8013; its disposable SQLite database lives outside the public root. Use a static server on port 8012, or override both URLs. `tests/asset-check.cjs` verifies running asset URLs, including optional `SUBPATH_URL`.
 
 - [Verification results and inspected screenshots](docs/VERIFICATION.md)
 - [Public launch and verification](docs/PUBLIC_LAUNCH.md)
@@ -88,3 +90,5 @@ Browser tests can use an existing Playwright installation: set `PLAYWRIGHT_MODUL
 - [Credits, provenance and rights](docs/CREDITS.md)
 
 A project by [TheLouisMahdi](https://github.com/TheLouisMahdi). Supplied original media retains its provenance; no blanket open-source license is asserted for the code or assets.
+
+See [the three-tool update](docs/TRACE_UPDATE.md) for animation, ageing and verification details.

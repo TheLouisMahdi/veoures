@@ -5,9 +5,9 @@
     const data = [
       ['Mode', mode === 'shared' ? 'SHARED ONLINE' : mode === 'local' ? 'LOCAL DEMO' : mode.toUpperCase()],
       ['Changes left today', String(Math.max(0, remaining))],
-      ['Age',status.age], ['Version',status.version], ['Contributions', status.mutations], ['Limbs', status.limbs],
-      ['Scars', status.scars], ['Growth nodes', status.buds + status.mass],
-      ['Pulse', `${status.pulse} BPM`], ['Growth tone', status.mood]
+      ['Age',status.age], ['Version',status.version], ['Contributions', status.mutations],
+      ['Living scars', status.scars], ['Mass traces', status.mass], ['Written traces', status.texts], ['Trace lifetime', '4 hours'],
+      ['Pulse', `${status.pulse} BPM`]
     ];
     for (const [label, value] of data) {
       const row = document.createElement('div'); row.className = 'status-row';

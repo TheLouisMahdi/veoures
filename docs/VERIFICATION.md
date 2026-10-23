@@ -1,5 +1,7 @@
 # Verification performed
 
+The original seven-tool integration results below are historical. For the current three-tool interface, zoom, absorption and four-hour ageing, see [TRACE_UPDATE.md](TRACE_UPDATE.md).
+
 Integration session: 2026-10-24. Real local HTTP servers plus installed desktop Chrome through Playwright. All checks below were executed, not inferred from source code. Browser testing uses isolated fresh contexts; shared mode uses two separate browser storage profiles talking to one real Node process.
 
 | Check | Actual result |
