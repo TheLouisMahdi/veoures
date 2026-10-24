@@ -1,16 +1,16 @@
 /* Canonical deterministic mutation reducer. Works in browser and Node/CommonJS. */
 (function (root, factory) {
-  const api = factory();
+  const api = factory(root.VeouresBody||(typeof require==='function'?require('./body-geometry.js'):null));
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.VeouresMutation = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (Body) {
   'use strict';
   // Legacy types remain replayable. The interface offers these three contribution tools.
-  const ACTIVE_TYPES = ['draw_scar', 'feed_mass', 'leave_text'];
-  const TYPES = ['draw_scar', 'seed_letter', 'feed_word', 'add_limb', 'feed_mass', 'heal', 'corrupt', 'leave_text'];
+  const ACTIVE_TYPES = ['add_limb', 'grow_eye', 'feed_mass'];
+  const TYPES = ['draw_scar', 'seed_letter', 'feed_word', 'add_limb', 'feed_mass', 'heal', 'corrupt', 'leave_text', 'grow_eye'];
   const LIFETIME = 4 * 60 * 60 * 1000;
   const KINDS = ['tendril', 'horn', 'tail', 'leg', 'wing'];
-  const CAPS = { limbs: 420, mass: 320, buds: 420, scars: 220, corruptions: 180, texts: 24 };
+  const CAPS = { limbs: 420, mass: 320, buds: 420, scars: 220, corruptions: 180, texts: 24, eyes:32 };
   const MOODS = {
     love: ['connective', -.08, -8], fear: ['tense', .12, 6],
     rage: ['spiky', .20, 14], hope: ['luminous', .04, -20],
@@ -33,6 +33,18 @@
   function normalizePayload(type, payload) {
     if (!TYPES.includes(type)) throw new Error('Unknown mutation type');
     if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid payload');
+    if(payload.schema===3||type==='grow_eye'){
+      if(!point(payload))throw Error('Choose a point on the organism');
+      const at={schema:3,x:+payload.x.toFixed(4),y:+payload.y.toFixed(4),mode:payload.mode||'auto',variant:payload.variant??-1};
+      if(!['auto','internal','external'].includes(at.mode)||!Number.isInteger(at.variant)||at.variant< -1||at.variant>=(type==='grow_eye'?12:type==='add_limb'?30:24))throw Error('Invalid organic variant or placement mode');
+      if(type==='add_limb'){if(!num(payload.length,.04,.20))throw Error('Limb length must be 0.04–0.20');at.length=+payload.length.toFixed(4)}
+      else if(type==='grow_eye'){if(!num(payload.radius,.01,.024))throw Error('Eye radius must be 0.01–0.024');at.radius=+payload.radius.toFixed(4);at.mode='internal'}
+      else if(type==='feed_mass'){if(!num(payload.amount,.01,.09))throw Error('Mass amount must be 0.01–0.09');at.amount=+payload.amount.toFixed(4)}
+      else throw Error('This tool is not biological');
+      if(payload.leaderboard!==undefined&&typeof payload.leaderboard!=='boolean')throw Error('Choose whether to appear on the leaderboard');at.leaderboard=payload.leaderboard===true;
+      if(payload.attachment){const a=payload.attachment;if(!num(a.u,0,1)||!num(a.rho,0,1)||!['internal','external'].includes(a.zone)||!Number.isInteger(payload.region)||payload.region<0||payload.region>63||!num(payload.duration,3600000,604800000)||!Number.isInteger(payload.appearance)||payload.appearance<0||payload.appearance>=(type==='grow_eye'?12:type==='add_limb'?30:24))throw Error('Invalid anatomical attachment');at.attachment={zone:a.zone,u:a.u,rho:a.rho};at.region=payload.region;at.duration=payload.duration;at.appearance=payload.appearance;at.effect=payload.effect;}
+      return at;
+    }
     if (type === 'draw_scar') {
       if (!Array.isArray(payload.path) || payload.path.length < 2 || payload.path.length > 40 || !payload.path.every(point)) {
         throw new Error('Scar requires 2-40 normalized points');
@@ -79,6 +91,12 @@
     return name;
   }
   function normalize(type,payload){const data=normalizePayload(type,payload),author=authorName(payload.author);return author?{...data,author}:data}
+  function intent(payload){const {attachment,region,effect,appearance,duration,...raw}=payload;return raw}
+  function prepare(state,type,input,now=Date.now()){
+    const p=normalize(type,input);if(p.schema!==3)return p;
+    const raw=intent(p),seed=hash(type+':'+state.genome+':'+state.version+':'+JSON.stringify({...raw,author:undefined,leaderboard:undefined})),placement=Body.placement(state,type,p,now),count=type==='grow_eye'?12:type==='add_limb'?30:24;
+    return{...raw,...placement,appearance:p.variant<0?seed%count:p.variant,duration:(type==='add_limb'?36+seed%37:type==='grow_eye'?24+seed%25:8+seed%17)*3600000};
+  }
   // A private random identity chooses one daily reset minute, stable across refreshes.
   function quotaWindow(identity,now=Date.now()) {const offset=hash(identity)%DAY,start=Math.floor((now-offset)/DAY)*DAY+offset;return{limit:LIMIT,start,resetAt:start+DAY}}
   function traits(genome){const n=i=>hash(String(genome)+':'+i)/4294967295;return{lobes:4+Math.floor(n(0)*6),stretch:.75+n(1)*.5,arms:16+Math.floor(n(2)*25),reach:.65+n(3)*.65,branches:1+Math.floor(n(4)*3),hue:330+n(5)*35,pace:.65+n(6)*.8,fold:n(7),spine:n(8),orbit:n(9)}}
@@ -96,7 +114,7 @@
         { id: 'primordial-f', x: 0.48, y: 0.53, angle: 1.75, length: 0.25, kind: 'tendril', curvature: -0.36 },
         { id: 'primordial-g', x: 0.47, y: 0.51, angle: 2.55, length: 0.33, kind: 'tendril', curvature: 0.44 },
       ],
-      buds: [], scars: [], corruptions: [], texts: [],
+      buds: [], scars: [], corruptions: [], texts: [], eyes:[], regions:{}, biology:null,
       mood: { tone: 'curious', pulse: .42, hue: 0 },
       totalContributions: 0, recent: [], genome:hash('veoures-001'), editions:[], makers:[]
     };
@@ -113,17 +131,25 @@
   }
   function apply(state, event) {
     if (!event || !Number.isInteger(event.version) || event.version !== state.version + 1) throw new Error('Out of sequence mutation');
-    const payload = normalize(event.type, event.payload);
+    let payload = normalize(event.type, event.payload);
+    if(payload.schema===3&&!payload.attachment)payload=prepare(state,event.type,payload,Date.parse(event.createdAt)||0);
     const id = String(event.id || 'evt-' + event.version);
-    const {author,...anatomy}=payload;
+    const {author,leaderboard,...anatomy}=payload;
     const jitter = hash(event.type + JSON.stringify(anatomy)) / 4294967295;
     const x = payload.x ?? payload.path?.[0].x ?? .5;
     const y = payload.y ?? payload.path?.[0].y ?? .5;
     state.texts ||= [];
     const createdAt = event.createdAt || new Date(0).toISOString();
+    if(payload.schema===3&&!state.biology)state.biology={baseGenome:state.genome,startedAt:createdAt};
     state.genome=hash(String(state.genome??hash('veoures-001'))+':'+event.version+':'+event.type+':'+JSON.stringify(anatomy));
     state.editions ||= [];state.makers ||= [];if(author&&!state.makers.includes(author))state.makers.push(author);
-    if (event.type === 'draw_scar') {
+    if(payload.schema===3){
+      const common={id,...payload,createdAt};
+      if(event.type==='add_limb')state.limbs.push({...common,kind:'tendril',angle:payload.attachment.u*Math.PI*2,curvature:(jitter-.5)*1.6});
+      else if(event.type==='grow_eye')state.eyes.push(common);
+      else state.mass.push({...common,r:payload.amount});
+      const cell=state.regions[payload.region]||{limbs:0,eyes:0,density:0,contributions:0,connections:0};cell.contributions++;cell.structuralInfluence=(cell.structuralInfluence||0)+payload.effect.influence;cell.firstAt ||= createdAt;cell.lastAt=createdAt;cell.connections=Math.min(12,cell.connections+payload.effect.connections);if(event.type==='add_limb')cell.limbs++;if(event.type==='grow_eye')cell.eyes++;if(event.type==='feed_mass')cell.density=Math.min(.25,cell.density+payload.amount);state.regions[payload.region]=cell;
+    } else if (event.type === 'draw_scar') {
       state.scars.push({ id, path: payload.path, intensity: 1 });
     } else if (event.type === 'leave_text') {
       state.texts.push({ id, x, y, text: payload.text });
@@ -154,9 +180,9 @@
     }
     state.version = event.version;
     state.totalContributions += 1;
-    state.recent.unshift({ id, type: event.type, x, y, createdAt, ...(payload.text ? { text: payload.text } : {}), ...(author?{author}:{}) });
+    state.recent.unshift({ id, type: event.type, x, y, createdAt, ...(payload.text ? { text: payload.text } : {}), ...(author?{author}:{}), ...(payload.schema===3?{region:payload.region,effect:payload.effect}:{}), ...(event.contributor?{contributor:event.contributor}:{}) });
     state.recent.length = Math.min(state.recent.length, 30);
-    if(state.totalContributions%EDITION_SIZE===0){state.editions.push({number:state.totalContributions/EDITION_SIZE,version:state.version,genome:state.genome,createdAt,makers:[...state.makers]});state.makers=[];}
+    if(state.totalContributions%EDITION_SIZE===0){state.editions.push({number:state.totalContributions/EDITION_SIZE,version:state.version,genome:state.genome,createdAt,makers:[...state.makers],...(state.biology?{biology:3}:{})});state.makers=[];}
     return state;
   }
   // Presentation ages; the accepted event log is never deleted or rewritten.
@@ -167,5 +193,5 @@
     const p = Math.min(1, age / LIFETIME);
     return Math.pow(1 - p, 1.35);
   }
-  return { TYPES, ACTIVE_TYPES, LIFETIME, life, KINDS, normalize, authorName, quotaWindow, traits, LIMIT, EDITION_SIZE, apply, seed, clone, hash };
+  return { TYPES, ACTIVE_TYPES, LIFETIME, life, KINDS, normalize, intent, prepare, Body, authorName, quotaWindow, traits, LIMIT, EDITION_SIZE, apply, seed, clone, hash };
 });

@@ -16,3 +16,12 @@ No separate third-party license grant was included in the supplied packs. These 
 ## Publication identity
 
 The additional `assets/brand/social-card.png` is an original VEOURES brand composition rendered from this project's canonical Canvas organism and native HTML typography. It is separately recorded in `asset-manifest.json`; the 33 original supplied asset hashes remain unchanged. Brand name, repository presentation and publication changes are described in `BRAND.md` and `PUBLICATION.md`.
+
+
+## Organic Assets V2 / Biological Evolution V3
+
+The user supplied `VEOURES_ORGANIC_ASSET_PACK_V2`. Its complete 563-file source is preserved under `source-packs/organic-v2/`, including original README, manifests, usage/pivot notes, reference images and catalogs. The source README describes project-specific original organic artwork. No additional third-party redistribution license was supplied; no license grant is invented here.
+
+Runtime uses 240 original transparent SVGs and 42 locally optimized WebPs. SVG names, paths beneath their category, geometry and supplied pivots remain intact. WebP originals remain in the source archive; runtime derivatives are 256×256 material maps and 640×360 atmospheres. Reference boards/crops, catalog sheets, PNG alternatives and animation strips are inventoried but never loaded as live organism sprites or served by the shared Worker. The living boundary, growth, connections and movement are procedural, not screenshots or frame replacements. Full inventory with original SHA-256 hashes: `data/organic-inventory.json`; runtime mapping: `data/organic-registry.json`.
+
+The pack prose says 29 icon families, while its actual files contain 30. Its 562 count excludes its manifest; the inventory includes all 563 files. No supplied original was edited or removed.

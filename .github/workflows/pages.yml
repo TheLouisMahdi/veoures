@@ -31,6 +31,8 @@ jobs:
           node -e "const fs=require('node:fs'),p=require('node:path'),c=require('node:child_process');function check(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name.startsWith('.')||e.name==='_site'||e.name==='node_modules')continue;const f=p.join(d,e.name);if(e.isDirectory())check(f);else if(/\.(?:c|m)?js$/.test(e.name))c.execFileSync(process.execPath,['--check',f],{stdio:'inherit'})}}check('.')"
       - name: Verify deterministic organism
         run: node tests/reducer-check.cjs
+      - name: Verify biological geometry and original pack inventory
+        run: node tests/biology-check.cjs
       - name: Verify shared server
         run: node tests/server-smoke.cjs
       - name: Package public shared Worker

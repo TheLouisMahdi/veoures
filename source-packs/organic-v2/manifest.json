@@ -1,0 +1,5923 @@
+{
+  "pack": "VEOURES Organic Asset Pack v2",
+  "targetRepo": "https://github.com/TheLouisMahdi/veoures",
+  "fileCount": 562,
+  "categoryFileCounts": {
+    "README.fa.md": 1,
+    "README.md": 1,
+    "atmosphere": 10,
+    "docs": 3,
+    "eyes": 108,
+    "fx": 72,
+    "index.html": 1,
+    "limbs": 60,
+    "mass": 48,
+    "material-maps": 32,
+    "previews": 8,
+    "references": 14,
+    "seams": 24,
+    "ui-icons": 180
+  },
+  "uncompressedBytes": 14671481,
+  "usage": "Original procedural/vector artwork and AI-generated concept art for the VEOURES project. Runtime organ sprites are transparent; reference images are not. No source code was patched.",
+  "files": [
+    {
+      "path": "README.fa.md",
+      "category": "README.fa.md",
+      "format": "md",
+      "bytes": 5278
+    },
+    {
+      "path": "README.md",
+      "category": "README.md",
+      "format": "md",
+      "bytes": 1633
+    },
+    {
+      "path": "assets/atmosphere/void-drift-01.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 46632,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-02.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 52054,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-03.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 46812,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-04.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 47466,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-05.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 54010,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-06.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 47486,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-07.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 50728,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-08.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 52154,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-09.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 48060,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/atmosphere/void-drift-10.webp",
+      "category": "atmosphere",
+      "format": "webp",
+      "bytes": 49428,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 101986,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10490,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 76257,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10488,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 75050,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10488,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 83671,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/dusk/dusk-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10490,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 97458,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10478,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 77355,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10475,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 75764,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10475,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 82573,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/ember/ember-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10477,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 101797,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10484,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 78994,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10481,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 76522,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10481,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 89707,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/gem/gem-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10483,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 100161,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10606,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 75756,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10601,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 73399,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10601,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 88868,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/hollow/hollow-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10603,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 101169,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10489,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 80864,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10487,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 78461,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10487,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 87579,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/larval/larval-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10489,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 99039,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10471,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 77895,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10468,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 76406,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10468,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 83981,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/lumen/lumen-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10470,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 101985,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10480,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 77173,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10478,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 75314,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10478,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 84957,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/orbit/orbit-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10480,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 104518,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10610,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 78078,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10608,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 76591,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10608,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 85653,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/radial/radial-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10610,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 102694,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10493,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 83534,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10491,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 81466,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10491,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 89890,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/sentry/sentry-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10493,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 96667,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10477,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 75822,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10475,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 74268,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10475,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 81229,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/split/split-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10477,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/dusk-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 167219,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/ember-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 168022,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/gem-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 179712,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/hollow-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 170697,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/larval-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 176973,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/lumen-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 172985,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/orbit-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 173795,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/radial-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 167896,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/sentry-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 179483,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/split-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 163190,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/umbra-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 172723,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/spritesheets/whorl-4frames.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 172625,
+      "dimensions": [
+        2048,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 98577,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10481,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 74702,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10478,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 72529,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10478,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 85869,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/umbra/umbra-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10480,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-awake.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 94911,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-awake.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10486,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-blink.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 79423,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-blink.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10483,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-bud.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 77935,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-bud.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10483,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-opening.png",
+      "category": "eyes",
+      "format": "png",
+      "bytes": 85097,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/eyes/whorl/whorl-opening.svg",
+      "category": "eyes",
+      "format": "svg",
+      "bytes": 10485,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-03.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 29306,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-03.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 3454,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-09.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 30310,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-09.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 3456,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-15.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 27877,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-15.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 3458,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-21.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 26928,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-21.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 3454,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-27.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 33748,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-27.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 3457,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-33.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 28400,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/emergence-33.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 3456,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-01.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 70231,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-01.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2939,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-07.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 69569,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-07.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2939,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-13.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 60132,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-13.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2938,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-19.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 54827,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-19.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2937,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-25.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 62139,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-25.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2940,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-31.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 63811,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/impulse-31.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2937,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-05.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 7539,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-05.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4066,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-11.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 7744,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-11.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4063,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-17.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 7911,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-17.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4065,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-23.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 7214,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-23.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4065,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-29.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 7824,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-29.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4064,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-35.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 7884,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/microbe-35.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4064,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-02.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 41901,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-02.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4415,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-08.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 37907,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-08.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4398,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-14.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 47898,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-14.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4412,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-20.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 48761,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-20.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4407,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-26.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 38609,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-26.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4409,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-32.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 41434,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/nerve-32.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4415,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-04.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 62972,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-04.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2939,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-10.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 69730,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-10.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2938,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-16.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 66538,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-16.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2938,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-22.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 66529,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-22.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2938,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-28.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 66573,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-28.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2940,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-34.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 71649,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/ripple-34.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 2939,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-06.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 34708,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-06.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4422,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-12.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 38171,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-12.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4420,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-18.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 38941,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-18.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4407,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-24.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 34057,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-24.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4404,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-30.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 44659,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-30.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4415,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-36.png",
+      "category": "fx",
+      "format": "png",
+      "bytes": 38807,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/fx/tissue-web-36.svg",
+      "category": "fx",
+      "format": "svg",
+      "bytes": 4405,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/limbs/antenna-13.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 17311,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/antenna-13.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2835,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/antenna-28.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 18183,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/antenna-28.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2839,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/branch-02.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 22246,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/branch-02.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3029,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/branch-17.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 20348,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/branch-17.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2839,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/crown-04.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 21929,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/crown-04.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3029,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/crown-19.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 26804,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/crown-19.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3342,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fan-11.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 19492,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fan-11.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2839,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fan-26.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 22205,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fan-26.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3029,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fibril-12.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 18238,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fibril-12.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2719,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fibril-27.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 25334,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fibril-27.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3027,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/filament-01.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 21278,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/filament-01.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3027,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/filament-16.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 17565,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/filament-16.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3034,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fold-10.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 19263,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fold-10.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3034,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fold-25.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 24293,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/fold-25.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3032,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/hook-03.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 24895,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/hook-03.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3149,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/hook-18.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 17745,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/hook-18.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2719,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/nerve-07.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 24114,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/nerve-07.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3347,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/nerve-22.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 22999,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/nerve-22.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3032,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/root-15.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 18948,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/root-15.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2716,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/root-30.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 23828,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/root-30.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3034,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/spike-09.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 26711,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/spike-09.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3154,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/spike-24.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 18875,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/spike-24.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2842,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/stalk-14.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 16986,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/stalk-14.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2717,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/stalk-29.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 25287,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/stalk-29.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3154,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/tendril-05.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 23209,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/tendril-05.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3345,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/tendril-20.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 21719,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/tendril-20.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3034,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/vine-08.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 22498,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/vine-08.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3029,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/vine-23.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 19931,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/vine-23.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 2718,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/whip-06.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 21263,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/whip-06.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3032,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/whip-21.png",
+      "category": "limbs",
+      "format": "png",
+      "bytes": 24244,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/limbs/whip-21.svg",
+      "category": "limbs",
+      "format": "svg",
+      "bytes": 3341,
+      "anchor": [
+        0.5,
+        0.918
+      ]
+    },
+    {
+      "path": "assets/mass/growth-04.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 96179,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-04.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6058,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-10.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 86855,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-10.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5770,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-16.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 81101,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-16.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6075,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-22.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 98421,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/growth-22.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6469,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-05.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 74501,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-05.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5995,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-11.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 67659,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-11.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6047,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-17.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 77953,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-17.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5671,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-23.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 76682,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/heart-23.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5914,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-03.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 91254,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-03.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6468,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-09.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 85156,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-09.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5687,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-15.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 95942,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-15.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6694,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-21.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 73504,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/lobe-21.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5823,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-02.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 75075,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-02.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5922,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-08.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 81836,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-08.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6256,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-14.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 72156,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-14.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5631,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-20.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 93149,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/membrane-20.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5838,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-01.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 89497,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-01.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6676,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-07.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 72655,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-07.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6072,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-13.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 91747,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-13.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5769,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-19.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 71167,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/nodule-19.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6262,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-06.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 87231,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-06.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5700,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-12.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 81025,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-12.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6067,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-18.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 67499,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-18.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 5974,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-24.png",
+      "category": "mass",
+      "format": "png",
+      "bytes": 89189,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/mass/pouch-24.svg",
+      "category": "mass",
+      "format": "svg",
+      "bytes": 6654,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/material-maps/fibers/fibers-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 30044,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/fibers/fibers-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29926,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/fibers/fibers-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29836,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/fibers/fibers-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29892,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/folds/folds-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29594,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/folds/folds-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29574,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/folds/folds-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29308,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/folds/folds-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 28358,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/granules/granules-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 88474,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/granules/granules-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 88482,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/granules/granules-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 88382,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/granules/granules-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 88410,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/membrane/membrane-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 29712,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/membrane/membrane-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 28906,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/membrane/membrane-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 28846,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/membrane/membrane-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 28118,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/micropore/micropore-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 61624,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/micropore/micropore-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 58736,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/micropore/micropore-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 56594,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/micropore/micropore-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 56620,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/nerve/nerve-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 37486,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/nerve/nerve-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 37028,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/nerve/nerve-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 36438,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/nerve/nerve-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 35708,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/veins/veins-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 26932,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/veins/veins-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 25364,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/veins/veins-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 25182,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/veins/veins-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 23274,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/wet-film/wet-film-01.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 24646,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/wet-film/wet-film-02.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 22242,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/wet-film/wet-film-03.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 19552,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/material-maps/wet-film/wet-film-04.webp",
+      "category": "material-maps",
+      "format": "webp",
+      "bytes": 19564,
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-01.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 39927,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-01.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4375,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-02.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 36508,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-02.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4376,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-03.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 35482,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-03.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4378,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-04.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 38226,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-04.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4374,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-05.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 35625,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-05.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4376,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-06.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 37104,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-06.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4378,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-07.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 38089,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-07.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4376,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-08.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 39049,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-08.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4376,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-09.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 39396,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-09.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4376,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-10.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 36459,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-10.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4375,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-11.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 42324,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-11.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4375,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-12.png",
+      "category": "seams",
+      "format": "png",
+      "bytes": 38892,
+      "dimensions": [
+        512,
+        512
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/seams/attachment-seam-12.svg",
+      "category": "seams",
+      "format": "svg",
+      "bytes": 4373,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "path": "assets/ui/icons/branch/branch-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1932,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/branch/branch-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 266
+    },
+    {
+      "path": "assets/ui/icons/branch/branch-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3031,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/branch/branch-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 329
+    },
+    {
+      "path": "assets/ui/icons/branch/branch-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6089,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/branch/branch-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 428
+    },
+    {
+      "path": "assets/ui/icons/cancel/cancel-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 902,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/cancel/cancel-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 223
+    },
+    {
+      "path": "assets/ui/icons/cancel/cancel-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1880,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/cancel/cancel-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 286
+    },
+    {
+      "path": "assets/ui/icons/cancel/cancel-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4992,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/cancel/cancel-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 385
+    },
+    {
+      "path": "assets/ui/icons/close/close-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 829,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/close/close-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 223
+    },
+    {
+      "path": "assets/ui/icons/close/close-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1915,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/close/close-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 286
+    },
+    {
+      "path": "assets/ui/icons/close/close-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5113,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/close/close-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 385
+    },
+    {
+      "path": "assets/ui/icons/collapse/collapse-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 484,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/collapse/collapse-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 255
+    },
+    {
+      "path": "assets/ui/icons/collapse/collapse-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1636,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/collapse/collapse-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 318
+    },
+    {
+      "path": "assets/ui/icons/collapse/collapse-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4882,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/collapse/collapse-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 417
+    },
+    {
+      "path": "assets/ui/icons/confirm/confirm-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1785,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/confirm/confirm-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 216
+    },
+    {
+      "path": "assets/ui/icons/confirm/confirm-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2781,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/confirm/confirm-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 279
+    },
+    {
+      "path": "assets/ui/icons/confirm/confirm-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5832,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/confirm/confirm-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 378
+    },
+    {
+      "path": "assets/ui/icons/download/download-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1273,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/download/download-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 246
+    },
+    {
+      "path": "assets/ui/icons/download/download-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2249,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/download/download-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 309
+    },
+    {
+      "path": "assets/ui/icons/download/download-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5266,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/download/download-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 408
+    },
+    {
+      "path": "assets/ui/icons/expand/expand-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 478,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/expand/expand-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 255
+    },
+    {
+      "path": "assets/ui/icons/expand/expand-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1626,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/expand/expand-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 318
+    },
+    {
+      "path": "assets/ui/icons/expand/expand-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4768,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/expand/expand-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 417
+    },
+    {
+      "path": "assets/ui/icons/eye-focus/eye-focus-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1585,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/eye-focus/eye-focus-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 289
+    },
+    {
+      "path": "assets/ui/icons/eye-focus/eye-focus-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2648,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/eye-focus/eye-focus-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 352
+    },
+    {
+      "path": "assets/ui/icons/eye-focus/eye-focus-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5445,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/eye-focus/eye-focus-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 451
+    },
+    {
+      "path": "assets/ui/icons/feed-mass/feed-mass-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4295,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/feed-mass/feed-mass-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 299
+    },
+    {
+      "path": "assets/ui/icons/feed-mass/feed-mass-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5016,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/feed-mass/feed-mass-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 362
+    },
+    {
+      "path": "assets/ui/icons/feed-mass/feed-mass-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 7720,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/feed-mass/feed-mass-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 461
+    },
+    {
+      "path": "assets/ui/icons/grow-eye/grow-eye-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3623,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/grow-eye/grow-eye-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 306
+    },
+    {
+      "path": "assets/ui/icons/grow-eye/grow-eye-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4528,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/grow-eye/grow-eye-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 369
+    },
+    {
+      "path": "assets/ui/icons/grow-eye/grow-eye-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 7835,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/grow-eye/grow-eye-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 468
+    },
+    {
+      "path": "assets/ui/icons/grow-limb/grow-limb-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2918,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/grow-limb/grow-limb-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 318
+    },
+    {
+      "path": "assets/ui/icons/grow-limb/grow-limb-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3958,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/grow-limb/grow-limb-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 381
+    },
+    {
+      "path": "assets/ui/icons/grow-limb/grow-limb-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 7029,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/grow-limb/grow-limb-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 480
+    },
+    {
+      "path": "assets/ui/icons/help/help-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1403,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/help/help-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 256
+    },
+    {
+      "path": "assets/ui/icons/help/help-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2448,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/help/help-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 319
+    },
+    {
+      "path": "assets/ui/icons/help/help-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5568,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/help/help-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 418
+    },
+    {
+      "path": "assets/ui/icons/history/history-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2877,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/history/history-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 254
+    },
+    {
+      "path": "assets/ui/icons/history/history-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3782,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/history/history-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 317
+    },
+    {
+      "path": "assets/ui/icons/history/history-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6709,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/history/history-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 416
+    },
+    {
+      "path": "assets/ui/icons/info/info-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3303,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/info/info-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 260
+    },
+    {
+      "path": "assets/ui/icons/info/info-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3391,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/info/info-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 323
+    },
+    {
+      "path": "assets/ui/icons/info/info-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5812,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/info/info-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 422
+    },
+    {
+      "path": "assets/ui/icons/inspect/inspect-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1516,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/inspect/inspect-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 300
+    },
+    {
+      "path": "assets/ui/icons/inspect/inspect-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2479,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/inspect/inspect-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 363
+    },
+    {
+      "path": "assets/ui/icons/inspect/inspect-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5176,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/inspect/inspect-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 462
+    },
+    {
+      "path": "assets/ui/icons/lock/lock-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1192,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/lock/lock-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 261
+    },
+    {
+      "path": "assets/ui/icons/lock/lock-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2151,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/lock/lock-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 324
+    },
+    {
+      "path": "assets/ui/icons/lock/lock-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5261,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/lock/lock-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 423
+    },
+    {
+      "path": "assets/ui/icons/observe/observe-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2925,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/observe/observe-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 272
+    },
+    {
+      "path": "assets/ui/icons/observe/observe-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3865,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/observe/observe-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 335
+    },
+    {
+      "path": "assets/ui/icons/observe/observe-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 7344,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/observe/observe-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 434
+    },
+    {
+      "path": "assets/ui/icons/pan/pan-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1790,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pan/pan-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 300
+    },
+    {
+      "path": "assets/ui/icons/pan/pan-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2695,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pan/pan-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 363
+    },
+    {
+      "path": "assets/ui/icons/pan/pan-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5777,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pan/pan-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 462
+    },
+    {
+      "path": "assets/ui/icons/pause/pause-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 350,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pause/pause-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 217
+    },
+    {
+      "path": "assets/ui/icons/pause/pause-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1432,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pause/pause-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 280
+    },
+    {
+      "path": "assets/ui/icons/pause/pause-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4680,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pause/pause-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 379
+    },
+    {
+      "path": "assets/ui/icons/play/play-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1372,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/play/play-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 217
+    },
+    {
+      "path": "assets/ui/icons/play/play-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2437,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/play/play-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 280
+    },
+    {
+      "path": "assets/ui/icons/play/play-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5519,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/play/play-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 379
+    },
+    {
+      "path": "assets/ui/icons/preview/preview-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3017,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/preview/preview-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 273
+    },
+    {
+      "path": "assets/ui/icons/preview/preview-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4044,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/preview/preview-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 336
+    },
+    {
+      "path": "assets/ui/icons/preview/preview-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 7493,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/preview/preview-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 435
+    },
+    {
+      "path": "assets/ui/icons/pulse/pulse-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2249,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pulse/pulse-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 251
+    },
+    {
+      "path": "assets/ui/icons/pulse/pulse-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3298,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pulse/pulse-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 314
+    },
+    {
+      "path": "assets/ui/icons/pulse/pulse-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6395,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/pulse/pulse-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 413
+    },
+    {
+      "path": "assets/ui/icons/replay/replay-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3309,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/replay/replay-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 258
+    },
+    {
+      "path": "assets/ui/icons/replay/replay-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 4193,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/replay/replay-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 321
+    },
+    {
+      "path": "assets/ui/icons/replay/replay-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 7215,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/replay/replay-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 420
+    },
+    {
+      "path": "assets/ui/icons/reset/reset-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2783,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/reset/reset-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 236
+    },
+    {
+      "path": "assets/ui/icons/reset/reset-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3718,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/reset/reset-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 299
+    },
+    {
+      "path": "assets/ui/icons/reset/reset-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6664,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/reset/reset-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 398
+    },
+    {
+      "path": "assets/ui/icons/snapshot/snapshot-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 1854,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/snapshot/snapshot-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 283
+    },
+    {
+      "path": "assets/ui/icons/snapshot/snapshot-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2846,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/snapshot/snapshot-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 346
+    },
+    {
+      "path": "assets/ui/icons/snapshot/snapshot-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 5968,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/snapshot/snapshot-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 445
+    },
+    {
+      "path": "assets/ui/icons/sound-off/sound-off-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2172,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sound-off/sound-off-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 258
+    },
+    {
+      "path": "assets/ui/icons/sound-off/sound-off-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3207,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sound-off/sound-off-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 321
+    },
+    {
+      "path": "assets/ui/icons/sound-off/sound-off-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6285,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sound-off/sound-off-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 420
+    },
+    {
+      "path": "assets/ui/icons/sound-on/sound-on-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2413,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sound-on/sound-on-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 270
+    },
+    {
+      "path": "assets/ui/icons/sound-on/sound-on-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3378,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sound-on/sound-on-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 333
+    },
+    {
+      "path": "assets/ui/icons/sound-on/sound-on-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6458,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sound-on/sound-on-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 432
+    },
+    {
+      "path": "assets/ui/icons/sync/sync-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2252,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sync/sync-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 277
+    },
+    {
+      "path": "assets/ui/icons/sync/sync-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3286,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sync/sync-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 340
+    },
+    {
+      "path": "assets/ui/icons/sync/sync-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6289,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/sync/sync-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 439
+    },
+    {
+      "path": "assets/ui/icons/zoom-in/zoom-in-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2892,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/zoom-in/zoom-in-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 276
+    },
+    {
+      "path": "assets/ui/icons/zoom-in/zoom-in-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3816,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/zoom-in/zoom-in-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 339
+    },
+    {
+      "path": "assets/ui/icons/zoom-in/zoom-in-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6814,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/zoom-in/zoom-in-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 438
+    },
+    {
+      "path": "assets/ui/icons/zoom-out/zoom-out-default.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 2808,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/zoom-out/zoom-out-default.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 265
+    },
+    {
+      "path": "assets/ui/icons/zoom-out/zoom-out-hover.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 3699,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/zoom-out/zoom-out-hover.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 328
+    },
+    {
+      "path": "assets/ui/icons/zoom-out/zoom-out-selected.png",
+      "category": "ui-icons",
+      "format": "png",
+      "bytes": 6716,
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/ui/icons/zoom-out/zoom-out-selected.svg",
+      "category": "ui-icons",
+      "format": "svg",
+      "bytes": 427
+    },
+    {
+      "path": "docs/ASSET_USAGE_MAP.json",
+      "category": "docs",
+      "format": "json",
+      "bytes": 1841
+    },
+    {
+      "path": "docs/CODEX_INTEGRATION_PROMPT.md",
+      "category": "docs",
+      "format": "md",
+      "bytes": 3145
+    },
+    {
+      "path": "docs/optional-design-tokens.css",
+      "category": "docs",
+      "format": "css",
+      "bytes": 523
+    },
+    {
+      "path": "index.html",
+      "category": "index.html",
+      "format": "html",
+      "bytes": 1994
+    },
+    {
+      "path": "previews/atmosphere-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 13828,
+      "dimensions": [
+        1090,
+        431
+      ]
+    },
+    {
+      "path": "previews/eyes-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 34528,
+      "dimensions": [
+        1125,
+        531
+      ]
+    },
+    {
+      "path": "previews/fx-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 57812,
+      "dimensions": [
+        1125,
+        1411
+      ]
+    },
+    {
+      "path": "previews/limbs-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 32978,
+      "dimensions": [
+        1125,
+        1191
+      ]
+    },
+    {
+      "path": "previews/mass-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 38006,
+      "dimensions": [
+        1125,
+        971
+      ]
+    },
+    {
+      "path": "previews/material-maps-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 56206,
+      "dimensions": [
+        1255,
+        851
+      ]
+    },
+    {
+      "path": "previews/seams-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 23704,
+      "dimensions": [
+        1125,
+        531
+      ]
+    },
+    {
+      "path": "previews/ui-icons-catalog.webp",
+      "category": "previews",
+      "format": "webp",
+      "bytes": 36944,
+      "dimensions": [
+        960,
+        941
+      ]
+    },
+    {
+      "path": "references/concept-board-full.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 333602,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/environment-study.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 20506,
+      "dimensions": [
+        331,
+        280
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/eye-study.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 18944,
+      "dimensions": [
+        349,
+        286
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/interface-components.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 17644,
+      "dimensions": [
+        432,
+        278
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/interface-symbols.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 16950,
+      "dimensions": [
+        475,
+        278
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/limb-study.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 13044,
+      "dimensions": [
+        294,
+        283
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/mass-study.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 15356,
+      "dimensions": [
+        266,
+        281
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/micro-details.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 14520,
+      "dimensions": [
+        337,
+        282
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/nerve-overlays.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 16460,
+      "dimensions": [
+        268,
+        278
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/organ-kit.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 25370,
+      "dimensions": [
+        502,
+        343
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/organism-composition.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 30544,
+      "dimensions": [
+        433,
+        337
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/pointer-cues.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 4636,
+      "dimensions": [
+        259,
+        143
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/surface-textures.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 30894,
+      "dimensions": [
+        326,
+        342
+      ],
+      "referenceOnly": true
+    },
+    {
+      "path": "references/tissue-closeups.webp",
+      "category": "references",
+      "format": "webp",
+      "bytes": 23546,
+      "dimensions": [
+        237,
+        341
+      ],
+      "referenceOnly": true
+    }
+  ]
+}

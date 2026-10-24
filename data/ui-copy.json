@@ -3,23 +3,23 @@
   "tagline": "A living form, shaped by us.",
   "intro": "Touch it. Change it. Leave something behind.",
   "tool": {
-    "draw_scar": {
-      "label": "Draw Scar",
-      "hint": "Draw a soft cut. After you commit, black threads pull it beneath the skin."
+    "add_limb": {
+      "label": "Grow Limb",
+      "hint": "Inside the skin: an internal fibre. Near its edge: an outward appendage. Full growth takes 36–72 hours."
+    },
+    "grow_eye": {
+      "label": "Grow Eye",
+      "hint": "Choose living tissue with room for a socket. A bud opens and develops over 24–48 hours."
     },
     "feed_mass": {
       "label": "Feed Mass",
-      "hint": "Choose a region. Watch living droplets merge with the body."
-    },
-    "leave_text": {
-      "label": "Write Trace",
-      "hint": "Leave small words in the writing corner. Zoom in to discover them."
+      "hint": "Thicken tissue from within or swell the nearby boundary. Absorption takes 8–24 hours."
     }
   },
   "preview": "Preview only. Nothing has been saved.",
   "commit": "Commit change",
   "cancel": "Cancel",
-  "success": "Received. It is becoming something else.",
+  "success": "Accepted. The tissue has begun growing.",
   "loading": "Connecting to the organism...",
   "local": "LOCAL DEMO - Only this browser remembers.",
   "shared": "One living body. Shared by everyone.",

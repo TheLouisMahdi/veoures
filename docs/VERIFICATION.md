@@ -1,3 +1,5 @@
+> Current Biological Evolution V3 details and validation: [BIOLOGICAL_V3.md](BIOLOGICAL_V3.md). Earlier implementation notes below are retained as history.
+
 # Verification performed
 
 Current autonomous behaviour, four personal-day touches, names and 414-change collection supersede earlier interface/quota details below. See [LIVING_UPDATE.md](LIVING_UPDATE.md).

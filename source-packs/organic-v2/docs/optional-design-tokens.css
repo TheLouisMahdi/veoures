@@ -1,0 +1,14 @@
+/* Optional VEOURES v2 visual tokens. Does not replace current site CSS. */
+:root {
+  --v2-void: #040407;
+  --v2-ink: #110f17;
+  --v2-membrane: #35313e;
+  --v2-vein: #9a2346;
+  --v2-pulse: #d65a80;
+  --v2-tissue-highlight: #bba9bc;
+  --v2-soft-contrast: #a99bad;
+  --v2-transition-organ: 1100ms;
+}
+.v2-icon { width: 23px; height: 23px; object-fit: contain; }
+.v2-overlay { pointer-events: none; mix-blend-mode: screen; opacity: .16; }
+@media (prefers-reduced-motion: reduce) { .v2-overlay { animation: none !important; } }

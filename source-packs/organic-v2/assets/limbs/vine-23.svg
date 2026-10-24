@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512"><defs>
+    <radialGradient id="tissue" cx="40%" cy="35%" r="70%"><stop stop-color="#554755"/><stop offset=".19" stop-color="#28212c"/><stop offset=".64" stop-color="#120e18"/><stop offset="1" stop-color="#050509" stop-opacity="0"/></radialGradient>
+    <radialGradient id="iris" cx="45%" cy="35%" r="68%"><stop stop-color="#f5a3ba"/><stop offset=".1" stop-color="#9f284e"/><stop offset=".43" stop-color="#65132e"/><stop offset=".86" stop-color="#140913"/><stop offset="1" stop-color="#05050a"/></radialGradient>
+    <radialGradient id="mass" cx="32%" cy="25%" r="72%"><stop stop-color="#998997" stop-opacity=".87"/><stop offset=".23" stop-color="#473542" stop-opacity=".87"/><stop offset=".6" stop-color="#191018" stop-opacity=".95"/><stop offset="1" stop-color="#050307" stop-opacity="0"/></radialGradient>
+    <linearGradient id="limb"><stop stop-color="#06060a"/><stop offset=".23" stop-color="#5a4655"/><stop offset=".49" stop-color="#231724"/><stop offset=".8" stop-color="#1d111d"/><stop offset="1" stop-color="#040407"/></linearGradient>
+    <linearGradient id="wet"><stop stop-color="#140710"/><stop offset=".4" stop-color="#d2517a"/><stop offset=".75" stop-color="#4f203a"/><stop offset="1" stop-color="#08040a"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="8"/></filter><filter id="fine"><feGaussianBlur stdDeviation="2"/></filter>
+    </defs><ellipse cx="256" cy="470" rx="31" ry="20" fill="url(#tissue)"/>
+        <path d="M246.1 477.0 Q199.3 280.2264641401956 315.6 165.9 Q215.1 296.2 265.9 477.0Z" fill="url(#limb)" stroke="#827786" stroke-opacity=".4" stroke-width="1"/>
+        <path d="M256 470 Q209.16783510952047 280.2264641401956 315.63580571330135 165.87000560833803" fill="none" stroke="#b14e72" stroke-width="1.4" opacity=".46"/>
+        <path d="M256 470 Q209.16783510952047 280.2264641401956 315.63580571330135 165.87000560833803" fill="none" stroke="#e0bdcc" stroke-width=".7" opacity=".33" stroke-dasharray="7 6 1 8"/>
+        <path d="M241.8 350.7 Q274.0 286.5 348.9 267.9" stroke="url(#limb)" stroke-width="4.0" stroke-linecap="round" fill="none"/><circle cx="348.9" cy="267.9" r="2.7" fill="#b43e68" opacity=".7"/><path d="M241.7 366.8 Q214.3 311.8 150.2 320.1" stroke="url(#limb)" stroke-width="1.7" stroke-linecap="round" fill="none"/><path d="M241.9 349.8 Q275.6 282.3 354.4 335.4" stroke="url(#limb)" stroke-width="2.1" stroke-linecap="round" fill="none"/><circle cx="354.4" cy="335.4" r="2.8" fill="#b43e68" opacity=".7"/>
+        <circle cx="256" cy="470" r="9" fill="#a13758" opacity=".35" filter="url(#soft)"/>
+        </svg>

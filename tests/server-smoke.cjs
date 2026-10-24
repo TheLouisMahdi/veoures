@@ -78,7 +78,8 @@ async function run() {
     await wait(500);
     const afterRestart = await get(b);
     assert.equal(afterRestart.version,11, 'accepted mutations must persist across restart');
-    console.log('PASS 7 tools, two contributors, privacy, incremental replay, malformed/oversized input, static path guards, idempotency, concurrent ordering, four/personal-day quota and persistent restart');
+    const c='biology-client-token';for(const[type,payload]of [['add_limb',{schema:3,x:.53,y:.51,length:.12,leaderboard:true,author:'Maker'}],['grow_eye',{schema:3,x:.45,y:.45,radius:.016,leaderboard:true,author:'Maker'}],['feed_mass',{schema:3,x:.55,y:.55,amount:.02,leaderboard:true,author:'Maker'}]]){const r=await post(c,type,payload,'biology-'+type);assert.equal(r.status,201,JSON.stringify(r));assert(r.body.event.payload.attachment);await wait(720)}const ranking=await(await fetch(origin+'/api/leaderboard')).json();assert.equal(ranking.rows.length,1);assert.equal(ranking.rows[0].total,3);const profile=await(await fetch(origin+'/api/profile',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','X-Veoures-Visitor':c},body:JSON.stringify({action:'create-recovery'})})).json();assert.match(profile.key,/^[a-f0-9]{64}$/);assert.equal((await fetch(origin+'/source-packs/organic-v2/README.md')).status,404);
+    console.log('PASS V3 tools, anatomical preparation, opt-in ranking and recovery; 7 legacy tools, two contributors, privacy, incremental replay, malformed/oversized input, static path guards, idempotency, concurrent ordering, four/personal-day quota and persistent restart');
   } finally { server.kill('SIGTERM'); fs.rmSync(temp,{recursive:true,force:true}); }
 }
 run().catch(e=>{console.error(e);process.exitCode=1});

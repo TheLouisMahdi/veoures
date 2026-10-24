@@ -1,0 +1,46 @@
+{
+  "reports": [
+    {
+      "width": 320,
+      "visibleAssets": 30,
+      "layout": "PASS"
+    },
+    {
+      "width": 390,
+      "visibleAssets": 31,
+      "layout": "PASS"
+    },
+    {
+      "width": 768,
+      "visibleAssets": 31,
+      "layout": "PASS"
+    },
+    {
+      "width": 1440,
+      "visibleAssets": 31,
+      "layout": "PASS"
+    },
+    {
+      "width": 1920,
+      "visibleAssets": 31,
+      "layout": "PASS"
+    },
+    "all biological tools, previews/cancel, names/opt-in, local ranking, reload, 0–168h growth, historical read-only, four-touch limit PASS",
+    "keyboard commit, rotating/zoomed coordinate inverse, autonomous motion PASS",
+    "real touch tap/commit; pinch preserves preview and quota PASS",
+    "real shared Worker two independent clients, replay/reload identical, one acceptance animation, offline preview retained, safe retry and lost accepted reply recovery without duplicates PASS",
+    "legacy 414 edition and current 1600px Canvas PNG exports PASS",
+    {
+      "cpuThrottle4x": {
+        "draws": 63,
+        "p95": 9.5,
+        "max": 10.400000000372529,
+        "dpr": 1,
+        "cache": 36
+      }
+    },
+    "no initial MP3; sound opt-in/off, hidden pause, renderer destroy cleanup, bounded DPR/cache PASS"
+  ],
+  "errors": [],
+  "httpErrors": []
+}

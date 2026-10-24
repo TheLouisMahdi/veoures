@@ -4,6 +4,7 @@ assets/** -text
 images/** -text
 audio/** -text
 docs/provenance/** -text
+source-packs/** -text
 *.png binary
 *.webp binary
 *.mp3 binary

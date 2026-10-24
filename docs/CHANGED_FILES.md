@@ -1,3 +1,5 @@
+> Current Biological Evolution V3 details and validation: [BIOLOGICAL_V3.md](BIOLOGICAL_V3.md). Earlier implementation notes below are retained as history.
+
 # Exact added files and corrections
 
 This inventory records the initial integration into the new `veoures/` sibling project. No existing source project file or supplied pack was overwritten, moved or deleted. All 189 original source files were verified unchanged against the initial SHA-256 snapshot. Private runtime data remains outside the public roots. Subsequent branding and publication changes are recorded in [PUBLICATION.md](PUBLICATION.md).

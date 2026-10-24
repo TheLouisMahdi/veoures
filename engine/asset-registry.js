@@ -1,0 +1,15 @@
+(function(root){
+'use strict';class OrganicRegistry{
+ constructor(){this.cache=new Map();this.listeners=new Set();this.pending=new Set();this.limit=96;this.ready=fetch('data/organic-registry.json').then(r=>{if(!r.ok)throw Error('Organic registry is unavailable');return r.json()}).then(data=>{this.data=data;this.groups={};for(const a of data.assets)(this.groups[a.category]||=[]).push(a);this.eyeNames=[...new Set(this.groups.eyes.map(a=>a.path.split('/').at(-2)))].sort();return this})}
+ entry(category,index=0,state='awake'){if(!this.data)return null;let list=this.groups[category]||[];if(category==='eyes'){const name=this.eyeNames[((index%12)+12)%12];return list.find(a=>a.path.endsWith('/'+name+'-'+state+'.svg'))}return list[((index%list.length)+list.length)%list.length]||null}
+ icon(name,state='default'){return this.groups?.['ui-icons']?.find(a=>a.path.endsWith('/'+name+'-'+state+'.svg'))?.path}
+ image(entry){if(!entry)return null;let item=this.cache.get(entry.path);if(item){item.last=performance.now();return item.loaded?item.image:null}const image=new Image();image.decoding='async';item={image,loaded:false,last:performance.now()};this.cache.set(entry.path,item);const pending=new Promise(resolve=>{image.onload=()=>{if(entry.format==='svg'){const raster=document.createElement('canvas'),scale=Math.min(1,384/Math.max(image.naturalWidth,image.naturalHeight));raster.width=Math.max(1,Math.ceil(image.naturalWidth*scale));raster.height=Math.max(1,Math.ceil(image.naturalHeight*scale));raster.getContext('2d').drawImage(image,0,0,raster.width,raster.height);item.image=raster}item.loaded=true;this.prune();resolve();for(const listener of this.listeners)listener()};image.onerror=()=>{item.failed=true;resolve()}});this.pending.add(pending);pending.finally(()=>this.pending.delete(pending));image.src=entry.path;this.prune();return null}
+ get(category,index=0,state='awake'){return this.image(this.entry(category,index,state))}
+ subscribe(fn){this.listeners.add(fn);return()=>this.listeners.delete(fn)}
+ prune(){if(this.cache.size<=this.limit)return;const old=[...this.cache].filter(([,a])=>a.loaded).sort((a,b)=>a[1].last-b[1].last);for(const [key]of old){if(this.cache.size<=this.limit)break;this.cache.delete(key)}}
+ async settle(){for(let i=0;i<4&&this.pending.size;i++)await Promise.all([...this.pending])}
+ attachIcon(button,name){if(!button||!this.icon(name))return;button.dataset.organicIcon=name;let img=button.querySelector('img.organic-icon');if(!img){img=document.createElement('img');img.className='organic-icon';img.alt='';img.width=18;img.height=18;button.prepend(img)}if(!button._organicUpdate){button._organicUpdate=()=>{const image=button.querySelector('img.organic-icon');if(image)image.src=this.icon(button.dataset.organicIcon,button.getAttribute('aria-pressed')==='true'?'selected':button.matches(':hover,:focus-visible')?'hover':'default')};for(const event of ['pointerenter','pointerleave','focus','blur'])button.addEventListener(event,button._organicUpdate);button.addEventListener('click',()=>requestAnimationFrame(button._organicUpdate))}button._organicUpdate()}
+
+}
+root.VeouresAssets=new OrganicRegistry();
+})(globalThis);

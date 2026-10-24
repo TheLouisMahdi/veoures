@@ -18,7 +18,7 @@ for(const type of ['draw_scar','feed_mass','leave_text']){
 }
 assert.equal(mutation.normalize('leave_text',{x:.6,y:.6,text:'  سلام   دنیا  '}).text,'سلام دنیا');
 for(const text of ['', '<script>', 'a'.repeat(81), 'unsafe\u202e', 'unsafe\u0000'])assert.throws(()=>mutation.normalize('leave_text',{x:.6,y:.6,text}));
-assert.deepEqual(mutation.ACTIVE_TYPES,['draw_scar','feed_mass','leave_text']);
+assert.deepEqual(mutation.ACTIVE_TYPES,['add_limb','grow_eye','feed_mass']);
 console.log('PASS three active tools, Persian text validation, deterministic timestamps and 0/2/4-hour visual ageing; event history retained');
 
 const Life=require('../engine/life-engine.js');const variants=new Set(),forms=mutation.seed();for(let i=1;i<=828;i++){mutation.apply(forms,{id:'form-'+i,version:i,type:'feed_mass',payload:{x:.5,y:.5,amount:.04,author:i%2?'مهدی':''},createdAt:new Date(accepted+i).toISOString()});variants.add(JSON.stringify(mutation.traits(forms.genome)))}assert.equal(variants.size,828);assert.equal(forms.editions.length,2);assert.equal(forms.editions[0].version,414);assert.equal(forms.editions[1].version,828);assert(forms.editions[0].makers.includes('مهدی'));

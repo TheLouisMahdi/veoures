@@ -1,0 +1,41 @@
+/* Shared biological geometry. Coordinates use the existing organism-local 0..1 plane. */
+(function(root,factory){const api=factory();if(typeof module!=='undefined'&&module.exports)module.exports=api;root.VeouresBody=api})(globalThis,function(){
+'use strict';const TAU=Math.PI*2,clamp=(n,a,b)=>Math.max(a,Math.min(b,n)),smooth=p=>{p=clamp(p,0,1);return p*p*(3-2*p)},hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.codePointAt(0);h=Math.imul(h,16777619)}return h>>>0};
+const metric=p=>({x:(p.x-.5)*1.32,y:(p.y-.5)*1.10}),local=p=>({x:.5+p.x/1.32,y:.5+p.y/1.10});
+function progress(organ,now){if(organ.id==='preview')return .3;const age=Math.max(0,now-Date.parse(organ.createdAt));return smooth(age/(organ.duration||86400000))}
+// Gradual response to accepted growth. Existing 74 BPM baseline is unchanged.
+function vitals(state,now){let load=0,density=0,senses=0;for(const key of ['limbs','mass','eyes'])for(const o of state[key]||[]){if(o.schema!==3||o.id==='preview')continue;const age=Math.max(0,now-Date.parse(o.createdAt)),p=progress(o,now),on=smooth(age/7200000);load+=on*(1-p)*.12;if(key==='mass')density+=o.amount*p;if(key==='eyes')senses+=p}return{pulse:Math.min(5,load),breathing:1+Math.min(.08,density*.04),tension:Math.min(1,load*.1+density*.01),senses:Math.min(1,senses/12)}}
+const STAGES={hours:[0,12,36,72,168],contributions:[0,4,12,24,48],names:['Primordial','Cellular growth','Structural development','Sensory development','Complex organism']};
+function regionAt(state,id,now){const organs=[...(state.limbs||[]),...(state.mass||[]),...(state.eyes||[])].filter(o=>o.schema===3&&o.region===id);return{...state.regions?.[id],maturity:organs.length?organs.reduce((n,o)=>n+progress(o,now),0)/organs.length:0}}
+function eyeStates(p,now,id,reduced=false){if(p<.12)return[{state:'bud',weight:1}];if(p<.24){const w=smooth((p-.12)/.12);return[{state:'bud',weight:1-w},{state:'opening',weight:w}]}if(p<.62)return[{state:'opening',weight:1}];const awake=smooth((p-.62)/.18),seed=hash(id),period=4+(seed%71)/10,phase=(now/1000+(seed%1000)/100)%period,blink=(!reduced&&phase<.18?Math.sin(phase/.18*Math.PI)**2:0)*smooth((p-.74)/.12);return[{state:'opening',weight:1-awake},{state:'awake',weight:awake*(1-blink)},{state:'blink',weight:awake*blink}]}
+function evolution(state,now){const hours=Math.max(0,(now-Date.parse(state.bornAt))/3600000),count=state.totalContributions;const times=STAGES.hours,counts=STAGES.contributions;let stage=0;for(let i=1;i<5;i++){const p=Math.min((hours-times[i-1])/(times[i]-times[i-1]),(count-counts[i-1])/(counts[i]-counts[i-1]));stage=Math.max(stage,i-1+smooth(p));if(p<1)break}return{stage:clamp(stage,0,4),name:STAGES.names[Math.floor(clamp(stage,0,4))],hours}}
+function contour(state,now,{reduced=false,count=192}={}){const genome=state.biology?.baseGenome??state.genome,n=i=>hash(genome+':'+i)/4294967295,lobes=4+Math.floor(n(0)*6),fold=n(7),stretch=.75+n(1)*.5,t=reduced?0:now/1000,evo=state.biology?evolution(state,now).stage:0;
+ let volume=0;for(const m of state.mass||[])if(!m.schema)volume+=m.r*.6*Math.pow(clamp(1-Math.max(0,now-Date.parse(m.createdAt||'1970-01-01'))/14400000,0,1),1.35);
+ const r=state.core.r*1.92*(1+Math.min(.28,volume)),vitalsNow=state.biology?vitals(state,now):{breathing:1},breath=reduced?1:1+Math.sin(t*(.65+n(6)*.8)*1.8)*.025*vitalsNow.breathing;
+ const amounts=new Float64Array(32);for(const m of state.mass||[])if(m.schema===3){const k=Math.round((m.attachment?.u||0)*32)%32;amounts[k]+=m.amount*(.08+.92*progress(m,now))*(m.attachment?.zone==='external'?1.35:.12)}const masses=Array.from(amounts,(amount,i)=>({amount,center:i/32*TAU})).filter(m=>m.amount),points=[];
+ for(let i=0;i<count;i++){const a=i/count*TAU;let organic=1+(.05+fold*.075)*Math.sin(a*lobes+.4)+.035*Math.cos(a*(lobes+4)+n(8)*4)+(reduced?0:.015*Math.sin(a*13+t*.6));organic+=evo*.009*Math.sin(a*(lobes+2)+n(9)*TAU);
+  let swell=0;for(const m of masses){const d=Math.atan2(Math.sin(a-m.center),Math.cos(a-m.center));swell+=m.amount*Math.exp(-d*d/.12)}
+  const rr=r*breath*organic+Math.tanh(swell/.042)*.042;points.push(local({x:Math.cos(a)*rr,y:Math.sin(a)*rr*(.78+stretch*.12)}));
+ }
+ return{points,r,evolution:evo,now};
+}
+function boundary(body,u){const points=body.points,n=points.length,k=((u%1)+1)%1*n,i=Math.floor(k),p=k-i,a=metric(points[i%n]),b=metric(points[(i+1)%n]),dx=b.x-a.x,dy=b.y-a.y,L=Math.hypot(dx,dy)||1;return{...local({x:a.x+dx*p,y:a.y+dy*p}),nx:dy/L,ny:-dx/L,tx:dx/L,ty:dy/L,u:((u%1)+1)%1}}
+function classify(body,point){const p=metric(point);let inside=false,best=Infinity,result=null;const ps=body.points;
+ for(let i=0,j=ps.length-1;i<ps.length;j=i++){const a=metric(ps[j]),b=metric(ps[i]);if((a.y>p.y)!==(b.y>p.y)&&p.x<(b.x-a.x)*(p.y-a.y)/(b.y-a.y)+a.x)inside=!inside;const dx=b.x-a.x,dy=b.y-a.y,q=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy),0,1),x=a.x+dx*q,y=a.y+dy*q,d=Math.hypot(p.x-x,p.y-y);if(d<best){best=d;result=boundary(body,(j+q)/ps.length)}}
+ return{inside,distance:inside?-best:best,boundary:result};
+}
+function interior(body,attachment){const b=boundary(body,attachment.u),p=metric(b);return local({x:p.x*attachment.rho,y:p.y*attachment.rho})}
+function anchor(body,organ){return organ.attachment.zone==='external'?boundary(body,organ.attachment.u):interior(body,organ.attachment)}
+function placement(state,type,payload,now){const body=contour(state,now),hit=classify(body,payload),mode=type==='grow_eye'?'internal':payload.mode||'auto';let zone=mode==='auto'?(hit.distance<-.025?'internal':'external'):mode;
+ if(hit.distance>.05)throw Error('Place the organ inside the skin or close to its boundary.');if(zone==='external'&&hit.distance<-.06)throw Error('External roots must be close to the boundary.');if(zone==='internal'&&hit.distance>-.008)throw Error('Move farther inside the membrane.');
+ const p=metric(payload),u=((Math.atan2(p.y,p.x)/TAU)%1+1)%1,b=metric(boundary(body,u)),rho=clamp(Math.hypot(p.x,p.y)/Math.max(.001,Math.hypot(b.x,b.y)),0,.82),attachment={zone,u:zone==='external'?hit.boundary.u:u,rho:zone==='external'?1:rho};
+ if(type==='grow_eye'&&hit.distance>-(payload.radius||.018)*1.4)throw Error('An eye needs more tissue around its socket.');
+ const region=clamp(Math.floor(payload.x*8),0,7)+clamp(Math.floor(payload.y*8),0,7)*8,cell=state.regions?.[region],neighbors=Object.entries(state.regions||{}).filter(([id])=>Math.abs(id%8-region%8)<=1&&Math.abs(Math.floor(id/8)-Math.floor(region/8))<=1).map(([,c])=>c),connections=Math.min(4,neighbors.reduce((n,c)=>n+(c.eyes>0?1:0)+(c.limbs>0?1:0),0));
+ if(type==='grow_eye'){if((state.eyes?.length||0)>=32||(cell?.eyes||0)>=2)throw Error('This sensory region is already developed.');for(const eye of state.eyes||[]){const e=anchor(body,eye);if(Math.hypot((e.x-payload.x)*1.32,(e.y-payload.y)*1.10)<(eye.radius+payload.radius)*1.65)throw Error('Leave space between eye sockets.')}}
+ if(type==='add_limb'&&(cell?.limbs||0)>=4)throw Error('This region has enough limbs. Choose another area.');
+ if(type==='feed_mass'&&(cell?.density||0)>=.24&&now-Date.parse(cell.lastAt)<28800000)throw Error('This tissue is absorbing its last meal. Choose another region or return in eight hours.');
+ const area=type==='grow_eye'?Math.PI*payload.radius**2:type==='add_limb'?payload.length*.012:payload.amount*.025*Math.max(.1,1-(cell?.density||0)/.24),score=Math.round(Math.min(40,area*20000))+Math.min(8,connections*2)+10;
+ return{attachment,region,effect:{area:+area.toFixed(6),connections,impact:score,influence:1+connections+Math.min(4,Math.floor(area*1000))}};
+}
+return{contour,boundary,classify,interior,anchor,placement,progress,evolution,vitals,regionAt,eyeStates,STAGES,metric,local,smooth,hash};
+});

@@ -1,0 +1,74 @@
+{
+  "organism": "Canvas geometry/reducer is authoritative; use images only for skin, response and atmosphere detail.",
+  "activeTools": [
+    {
+      "type": "add_limb",
+      "label": "Grow Limb",
+      "icon": "assets/ui/icons/grow-limb/grow-limb-default.svg",
+      "optionalDetail": "assets/limbs",
+      "anchor": [
+        0.5,
+        0.918
+      ],
+      "placement": "body boundary; outward normal"
+    },
+    {
+      "type": "grow_eye",
+      "label": "Grow Eye",
+      "icon": "assets/ui/icons/grow-eye/grow-eye-default.svg",
+      "optionalDetail": "assets/eyes",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "placement": "inside existing deformable skin"
+    },
+    {
+      "type": "feed_mass",
+      "label": "Feed Mass",
+      "icon": "assets/ui/icons/feed-mass/feed-mass-default.svg",
+      "optionalDetail": "assets/mass",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "placement": "interior near skin, local contour deformation"
+    }
+  ],
+  "eyeStates": [
+    "bud",
+    "opening",
+    "awake",
+    "blink"
+  ],
+  "eyeSpriteSheets": {
+    "frameWidth": 512,
+    "frameHeight": 512,
+    "frames": 4,
+    "layout": "horizontal",
+    "order": [
+      "bud",
+      "opening",
+      "awake",
+      "blink"
+    ]
+  },
+  "proceduralTextureUse": {
+    "materialMaps": "subtle rgba compositing within body clipping path",
+    "atmosphere": "low-opacity full stage background overlay",
+    "fx": "short transient reaction on accepted mutation",
+    "seams": "soft organ-to-body visual seam, not a detached badge"
+  },
+  "legacyTypesToReplay": [
+    "draw_scar",
+    "seed_letter",
+    "feed_word",
+    "add_limb",
+    "feed_mass",
+    "heal",
+    "corrupt",
+    "leave_text"
+  ],
+  "recommendedPathPrefix": "assets/veoures-v2/",
+  "caution": "Do not reference anything in references/ as a runtime sprite."
+}

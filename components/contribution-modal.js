@@ -1,11 +1,5 @@
-(function(root){
-'use strict';
-const fields={feed_mass:'<label>Living volume<input name="amount" type="range" min="0.01" max="0.09" value="0.045" step="0.005"></label>',leave_text:'<label>A small trace<textarea name="text" dir="auto" rows="2" maxlength="160" placeholder="Leave a few words…" aria-describedby="text-note" spellcheck="false"></textarea></label><p class="small" id="text-note">1–80 characters. Public, tiny, and slowly dissolving. Zoom into the writing corner to read it.</p>'};
-root.VeouresComposer=function(form,type,point,path){
- if(form.dataset.type!==type){form.dataset.type=type;form.querySelector('[data-fields]').innerHTML=fields[type]||''}
- const input=new FormData(form),values={x:point.x,y:point.y};
- if(type==='draw_scar')values.path=path?.length>=2?path:[{x:Math.max(0,point.x-.06),y:Math.max(0,point.y-.01)},{x:Math.min(1,point.x+.06),y:Math.min(1,point.y+.01)}];
- if(type==='feed_mass')values.amount=Number(input.get('amount'));
- if(type==='leave_text'){values.x=.64;values.y=.62;values.text=String(input.get('text')??'')}
- return values;
-};})(globalThis);
+(function(root){'use strict';
+function variants(type){const category=type==='grow_eye'?'eyes':type==='add_limb'?'limbs':'mass',assets=VeouresAssets.groups[category]||[],names=category==='eyes'?VeouresAssets.eyeNames:assets.map(a=>a.id);return '<label>Organic variation<select name="variant"><option value="-1">Let the tissue choose</option>'+names.map((n,i)=>'<option value="'+i+'">'+n.replaceAll('-',' ')+'</option>').join('')+'</select></label>'}
+const field={add_limb:'<label>Placement<select name="mode"><option value="auto">Auto — tissue or boundary</option><option value="internal">Internal fibre</option><option value="external">External appendage</option></select></label><label>Mature length<input name="length" type="range" min="0.04" max="0.20" step="0.01" value="0.12"></label>',grow_eye:'<label>Mature eye size<input name="radius" type="range" min="0.010" max="0.024" step="0.001" value="0.015"></label>',feed_mass:'<label>Living volume<input name="amount" type="range" min="0.01" max="0.09" step="0.005" value="0.035"></label>'};
+root.VeouresComposer=function(form,type,point){if(form.dataset.type!==type){form.dataset.type=type;form.querySelector('[data-fields]').innerHTML=(field[type]||'')+variants(type)}const input=new FormData(form),values={schema:3,x:point.x,y:point.y,mode:String(input.get('mode')||'auto'),variant:Number(input.get('variant')??-1),leaderboard:form.querySelector('#leaderboard-optin')?.checked===true};if(type==='add_limb')values.length=Number(input.get('length'));if(type==='grow_eye'){values.radius=Number(input.get('radius'));values.mode='internal'}if(type==='feed_mass')values.amount=Number(input.get('amount'));return values};
+})(globalThis);

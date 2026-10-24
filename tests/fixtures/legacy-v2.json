@@ -1,0 +1,27 @@
+{
+  "source": "51381b80e78f6c08afda9cd3f3e32ee9bf3018aa",
+  "bornAt": "2026-10-23T00:00:00.000Z",
+  "genome": 2939632747,
+  "editions": [
+    {
+      "number": 1,
+      "version": 414,
+      "genome": 2223096923,
+      "createdAt": "2026-10-24T12:00:00.414Z",
+      "makers": [
+        "Maker"
+      ]
+    },
+    {
+      "number": 2,
+      "version": 828,
+      "genome": 2939632747,
+      "createdAt": "2026-10-24T12:00:00.828Z",
+      "makers": [
+        "Maker"
+      ]
+    }
+  ],
+  "rendererSHA256": "b82dc4aa49610938281dd58a0105dd41ca7b57d1a3d02794fa68a099f0b5da95",
+  "rendererVisualSHA256": "1ab224d8fe4e0bf6c4076cec53b67a6a3b7e526dab7be11e8800bec73a6b7fbe"
+}

@@ -17,6 +17,7 @@ Run `server/server.js` with `PUBLIC_DIR` set to the repository, `PORT` to the ch
 ## Checks
 
 - `node tests/reducer-check.cjs`
+- `node tests/biology-check.cjs`
 - `node tests/server-smoke.cjs`
 - `node hosting/build.mjs`
 - `node hosting/tests.mjs`
@@ -24,3 +25,5 @@ Run `server/server.js` with `PUBLIC_DIR` set to the repository, `PORT` to the ch
 - `node tests/publication-check.cjs`
 
 See [living organism update](LIVING_UPDATE.md), [architecture](ARCHITECTURE.md), and [hosting source](../hosting/README.md). Publish with the existing Sites project and database; preserve its audience and migrations. GitHub Pages remains a clearly labelled browser-local fallback and redirects normal visits to the public shared edition.
+
+Biological Evolution V3 supersedes earlier tool descriptions: see [V3 implementation and verification](BIOLOGICAL_V3.md). Start an empty isolated Worker preview before each browser suite; it creates accepted changes in that disposable database.
