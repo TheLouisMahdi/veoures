@@ -65,11 +65,11 @@ async function run() {
     assert.equal(state.events.length,3,'incremental sync should return only missing updates');
     const bad = await post(b,'feed_mass',{x:100,y:0,amount:.02});
     assert.equal(bad.status,400);
-    const fifth = await post(a,'heal',{x:.5,y:.5});
+    const fifth = await post(b,'heal',{x:.5,y:.5});
     assert.equal(fifth.status,201);
     await wait(720);
-    const sixth = await post(a,'heal',{x:.5,y:.5});
-    assert.equal(sixth.status,429,'five accepted changes per day');
+    const sixth = await post(b,'heal',{x:.5,y:.5});
+    assert.equal(sixth.status,429,'four accepted changes per personal day');
     assert.equal((await get(a)).version,8,'rejected requests must not consume quota or version');
     const concurrent=await Promise.all(['parallel-client-a','parallel-client-b','parallel-client-c'].map(token=>post(token,'heal',{x:.5,y:.5})));
     assert(concurrent.every(r=>r.status===201));assert.deepEqual(concurrent.map(r=>r.body.event.version).sort((a,b)=>a-b),[9,10,11]);
@@ -78,7 +78,7 @@ async function run() {
     await wait(500);
     const afterRestart = await get(b);
     assert.equal(afterRestart.version,11, 'accepted mutations must persist across restart');
-    console.log('PASS 7 tools, two contributors, privacy, incremental replay, malformed/oversized input, static path guards, idempotency, concurrent ordering, five/day quota and persistent restart');
+    console.log('PASS 7 tools, two contributors, privacy, incremental replay, malformed/oversized input, static path guards, idempotency, concurrent ordering, four/personal-day quota and persistent restart');
   } finally { server.kill('SIGTERM'); fs.rmSync(temp,{recursive:true,force:true}); }
 }
 run().catch(e=>{console.error(e);process.exitCode=1});

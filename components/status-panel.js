@@ -4,8 +4,8 @@
     element.replaceChildren();
     const data = [
       ['Mode', mode === 'shared' ? 'SHARED ONLINE' : mode === 'local' ? 'LOCAL DEMO' : mode.toUpperCase()],
-      ['Changes left today', String(Math.max(0, remaining))],
-      ['Age',status.age], ['Version',status.version], ['Contributions', status.mutations],
+      ['Touches until next opening', String(Math.max(0, remaining))],
+      ['Next opening',status.opening], ['Age',status.age], ['Version',status.version], ['Contributions', status.mutations],
       ['Living scars', status.scars], ['Mass traces', status.mass], ['Written traces', status.texts], ['Trace lifetime', '4 hours'],
       ['Pulse', `${status.pulse} BPM`]
     ];

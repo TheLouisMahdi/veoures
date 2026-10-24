@@ -7,7 +7,7 @@ class Renderer {
  constructor(canvas,engine){
   this.canvas=canvas;this.ctx=canvas.getContext('2d');if(!this.ctx)throw Error('Canvas 2D is unavailable.');
   this.engine=engine;this.preview=null;this.inspected=null;this.raf=0;this.animations=new Map();this.reactions=[];this.seen=new Set();this.initialized=false;
-  this.zoom=1;this.pan={x:0,y:0};this.pointer=null;this.pointerFollow=null;this.navigation=false;this.version=engine.state.version;
+  this.pose={x:0,y:0,angle:0};this.frozenPose=null;this.touch=null;this.lastTime=0;this.previousGenome=engine.state.genome;this.zoom=1;this.pan={x:0,y:0};this.pointer=null;this.pointerFollow=null;this.navigation=false;this.version=engine.state.version;
   this.motionQuery=matchMedia('(prefers-reduced-motion: reduce)');this.reduced=this.motionQuery.matches;this.visible=!document.hidden;
   this.motionQuery.addEventListener('change',e=>{this.reduced=e.matches;this.reactions=[];this.animations.clear();this.start()});
   document.addEventListener('visibilitychange',()=>{this.visible=!document.hidden;this.reactions=[];this.start()});
@@ -16,14 +16,17 @@ class Renderer {
   this.resizeObserver=new ResizeObserver(()=>this.resize());this.resizeObserver.observe(canvas);this.resize();this.start();
  }
  resize(){
-  const box=this.canvas.getBoundingClientRect();this.dpr=Math.min(box.width<700?1.5:2,devicePixelRatio||1);
-  this.w=box.width;this.h=box.height;this.unit=Math.min(this.w,this.h);this.cx=this.w*(this.w<700?.5:.56);this.cy=this.h*(this.w<700?.43:.49);
+  const box=this.canvas.getBoundingClientRect();this.dpr=Math.min(this.engine.exporting?1:box.width<700?1.5:2,devicePixelRatio||1);
+  this.w=box.width;this.h=box.height;this.unit=Math.min(this.w,this.h);this.cx=this.w*.5;this.cy=this.h*(this.w<700?.45:.49);
   this.sx=this.unit*1.32;this.sy=this.unit*1.10;this.canvas.width=Math.round(this.w*this.dpr);this.canvas.height=Math.round(this.h*this.dpr);
   this.pan.x=clamp(this.pan.x,-this.w*4,this.w*4);this.pan.y=clamp(this.pan.y,-this.h*4,this.h*4);this.refresh();
  }
  xy(x,y){return[this.cx+(x-.5)*this.sx,this.cy+(y-.5)*this.sy]}
  screen(event){const r=this.canvas.getBoundingClientRect();return{x:event.clientX-r.left,y:event.clientY-r.top}}
- world(event){const p=this.screen(event);return{x:this.cx+(p.x-this.cx-this.pan.x)/this.zoom,y:this.cy+(p.y-this.cy-this.pan.y)/this.zoom}}
+ world(event){const p=this.screen(event),wx=this.cx+(p.x-this.cx-this.pan.x)/this.zoom,wy=this.cy+(p.y-this.cy-this.pan.y)/this.zoom,pose=this.pose||{x:0,y:0,angle:0},dx=wx-this.cx-pose.x,dy=wy-this.cy-pose.y,co=Math.cos(-pose.angle),si=Math.sin(-pose.angle);return{x:this.cx+dx*co-dy*si,y:this.cy+dx*si+dy*co}}
+ freeze(){this.frozenPose={...this.pose}}
+ release(){this.frozenPose=null}
+
  locate(event){const p=this.world(event);return{x:clamp(.5+(p.x-this.cx)/this.sx,.02,.98),y:clamp(.5+(p.y-this.cy)/this.sy,.02,.98)}}
  setZoom(value,at={x:this.w/2,y:this.h/2}){
   const next=clamp(value,1,8),ratio=next/this.zoom;
@@ -32,8 +35,8 @@ class Renderer {
  }
  moveView(dx,dy){this.pan.x=clamp(this.pan.x+dx,-this.w*this.zoom,this.w*this.zoom);this.pan.y=clamp(this.pan.y+dy,-this.h*this.zoom,this.h*this.zoom);this.refresh()}
  resetView(){this.zoom=1;this.pan={x:0,y:0};this.refresh();this.onView?.()}
- focusText(){const p=this.textAnchor();this.zoom=this.w<700?5:4;this.pan={x:(this.w<700?24:this.w*.24)-this.cx-(p.x-this.cx)*this.zoom,y:this.h*.34-this.cy-(p.y-this.cy)*this.zoom};this.refresh();this.onView?.()}
- setPreview(type,payload){this.preview={type,...payload};this.refresh()}
+ focusText(){this.frozenPose={x:0,y:0,angle:0};this.pose={...this.frozenPose};const p=this.textAnchor();this.zoom=this.w<700?5:4;this.pan={x:(this.w<700?24:this.w*.24)-this.cx-(p.x-this.cx)*this.zoom,y:this.h*.34-this.cy-(p.y-this.cy)*this.zoom};this.refresh();this.onView?.()}
+ setPreview(type,payload){if(!this.frozenPose)this.freeze();this.preview={type,...payload};this.refresh()}
  refresh(){
   if(this.engine.ready){
    if(!this.initialized){for(const key of lists)for(const item of this.engine.state[key]||[])this.seen.add(item.id);this.initialized=true}
@@ -49,6 +52,7 @@ class Renderer {
     this.reactions=this.reactions.slice(-8);
    }
   }
+  if(this.engine.state.genome!==this.previousGenome){this.fromGenome=this.previousGenome;this.previousGenome=this.engine.state.genome;this.genomeChanged=performance.now()}
   this.version=this.engine.state.version;this.previewState=null;
   if(this.preview){const copy=VeouresMutation.clone(this.engine.state);try{VeouresMutation.apply(copy,{id:'preview',version:copy.version+1,type:this.preview.type,payload:this.preview,createdAt:new Date(this.engine.now()).toISOString()});this.previewState=copy}catch{}}
   if(this.visible)this.draw(this.reduced?0:performance.now()/1000);
@@ -77,19 +81,24 @@ class Renderer {
 
  draw(time){
   const c=this.ctx,s=this.previewState||this.engine.state,u=this.unit;if(!u||!this.visible)return;this.wall=this.engine.now();
-  c.setTransform(this.dpr,0,0,this.dpr,0,0);c.clearRect(0,0,this.w,this.h);c.save();c.translate(this.cx+this.pan.x,this.cy+this.pan.y);c.scale(this.zoom,this.zoom);c.translate(-this.cx,-this.cy);
+  const life=VeouresLife.sample(s,this.wall,this.w,this.h,this.reduced);this.behaviour=life;this.drawTime=life.t;
+  c.setTransform(this.dpr,0,0,this.dpr,0,0);c.clearRect(0,0,this.w,this.h);this.drawSpace(life);c.save();c.translate(this.cx+this.pan.x,this.cy+this.pan.y);c.scale(this.zoom,this.zoom);c.translate(-this.cx,-this.cy);
+  const target=this.frozenPose||life.pose;if(this.reduced)this.pose={x:0,y:0,angle:0};else{const blend=this.frozenPose?1:.025;for(const key of ['x','y','angle'])this.pose[key]+=(target[key]-this.pose[key])*blend}c.translate(this.cx+this.pose.x,this.cy+this.pose.y);c.rotate(this.pose.angle);c.translate(-this.cx,-this.cy);
   c.globalAlpha=1;c.lineCap='round';c.lineJoin='round';c.setLineDash([]);
   for(const [id,start] of this.animations)if(performance.now()-start>=3200)this.animations.delete(id);
   this.reactions=this.reactions.filter(a=>performance.now()-a.start<3200);
   const [cx,cy]=this.xy(s.core.x,s.core.y),volume=Math.min(.28,s.mass.reduce((a,b)=>a+b.r*.6*this.life(b)*this.growth(b.id),0));
-  const r=s.core.r*u*1.7*(1+volume)*(1+(this.reduced?0:Math.sin(time*1.55)*.018));this.radius=r;
-  const hue=345+s.mood.hue,halo=c.createRadialGradient(cx,cy,0,cx,cy,r*2.7);halo.addColorStop(0,`hsla(${hue},60%,22%,.2)`);halo.addColorStop(1,'#0000');c.fillStyle=halo;c.fillRect(cx-r*3,cy-r*3,r*6,r*6);
-  for(const item of s.limbs)this.limb(item,time);
+  const morph=!this.reduced&&this.genomeChanged?ease((performance.now()-this.genomeChanged)/4000):1,to=life.dna,from=VeouresMutation.traits(this.fromGenome??s.genome),dna={};for(const key of Object.keys(to))dna[key]=from[key]+(to[key]-from[key])*morph;this.dna=dna;
+  const r=s.core.r*u*1.92*(1+volume)*life.breath;this.radius=r;
+  const hue=dna.hue+s.mood.hue*.25,halo=c.createRadialGradient(cx,cy,0,cx,cy,r*2.7);halo.addColorStop(0,`hsla(${hue},60%,22%,.2)`);halo.addColorStop(1,'#0000');c.fillStyle=halo;c.fillRect(cx-r*3,cy-r*3,r*6,r*6);
+  for(const item of s.limbs)this.limb(item,this.reduced?0:life.t*.8);
+  this.drawWildArms(s,life,dna);
   const body=new Path2D(),edge=[];
   for(let i=0;i<80;i++){
-   const a=i/80*TAU;let organic=1+.055*Math.sin(a*5+.4)+.03*Math.cos(a*9)+(this.reduced?0:.009*Math.sin(a*13+time*.35));
+   const a=i/80*TAU;let organic=1+(.05+dna.fold*.075)*Math.sin(a*dna.lobes+.4)+.035*Math.cos(a*(dna.lobes+4)+dna.spine*4)+(this.reduced?0:.025*Math.sin(a*13+life.t*.6));
+   if(!this.reduced)organic+=.035*Math.sin(a*3-life.t*.7)*life.swirl;
    for(const reaction of this.reactions){const p=(performance.now()-reaction.start)/3200,at=reaction.item.path?.[Math.floor(reaction.item.path.length/2)]||reaction.item;const [x,y]=this.xy(at.x,at.y),angle=Math.atan2(y-cy,x-cx);organic-=.018*Math.exp(-Math.pow(Math.atan2(Math.sin(a-angle),Math.cos(a-angle))*3,2))*Math.sin(p*Math.PI)}
-   edge.push([cx+Math.cos(a)*r*organic,cy+Math.sin(a)*r*organic*.87]);
+   edge.push([cx+Math.cos(a)*r*organic,cy+Math.sin(a)*r*organic*(.78+dna.stretch*.12)*life.stretch]);
   }
   body.moveTo((edge[0][0]+edge.at(-1)[0])/2,(edge[0][1]+edge.at(-1)[1])/2);
   for(let i=0;i<edge.length;i++){const next=edge[(i+1)%edge.length];body.quadraticCurveTo(...edge[i],(edge[i][0]+next[0])/2,(edge[i][1]+next[1])/2)}body.closePath();
@@ -104,19 +113,47 @@ class Renderer {
   // A restrained wet specular highlight follows the upper skin.
   const sheen=c.createRadialGradient(cx-r*.35,cy-r*.62,r*.02,cx-r*.35,cy-r*.62,r*.7);sheen.addColorStop(0,'#d9d1e326');sheen.addColorStop(.18,'#9d91b014');sheen.addColorStop(1,'#0000');c.fillStyle=sheen;c.fillRect(cx-r,cy-r,r*2,r*2);c.restore();
   for(const bud of s.buds){c.save();c.globalAlpha=this.life(bud);this.limb({...bud,kind:'tendril',curvature:Math.sin(bud.angle)},time,bud.healed?'#9b8f9c':'#514655',true);c.restore()}
-  for(const mass of s.mass)this.drawMass(mass,time);
+  const tissue=new Map();for(const mass of s.mass){if(this.life(mass)>.001)tissue.set(Math.round(mass.x*20)+':'+Math.round(mass.y*20),mass)}c.save();c.clip(body);for(const mass of tissue.values())this.drawMass(mass,time);c.restore();
   for(const scar of s.scars)this.drawScar(scar,time);
   for(const lesion of s.corruptions){c.save();c.globalAlpha=this.life(lesion);const[x,y]=this.xy(lesion.x,lesion.y);c.fillStyle='#3e091d';c.beginPath();c.ellipse(x,y,lesion.radius*u,lesion.radius*u*.7,0,0,TAU);c.fill();c.restore()}
+  this.drawSkinLife(life);
   this.drawTexts(s,time);
   if(!this.reduced)for(const reaction of this.reactions)this.drawReaction(reaction,time);
-  this.drawPointer(time);
+  this.drawPointer(time);this.drawTouch();this.drawShedding(life);
   if(this.preview&&this.preview.type!=='leave_text')this.marker(this.preview.type==='draw_scar'?this.preview.path[0]:this.preview,'#efbbcf',time);
   if(this.inspected)this.marker(this.inspected.type==='leave_text'?{x:.64,y:.62}:this.inspected,'#e989af',0);
   c.restore();c.setTransform(this.dpr,0,0,this.dpr,0,0);
  }
+ drawSpace(life){
+  const c=this.ctx,count=this.w<700?25:64,t=this.reduced?0:life.t;
+  for(let i=0;i<count;i++){const seed=VeouresMutation.hash('void:'+i),x=((seed%10000)/10000*this.w+t*(i%2?1:-1)*(1+i%4)*.35)%this.w,y=((seed%7919)/7919*this.h+Math.sin(t*.05+i)*12+this.h)%this.h;c.fillStyle=i%7===0?'#be709938':'#b5a0c821';c.beginPath();c.arc((x+this.w)%this.w,y,i%9===0?1.1:.5,0,TAU);c.fill()}
+ }
+ drawWildArms(state,life,dna){
+  const c=this.ctx,u=this.unit,max=this.w<700?28:44,t=this.reduced?0:life.t;let count=0;
+  for(let i=0;i<max;i++){
+   const arm=VeouresLife.arm(state,i,this.reduced?0:this.wall),prior=this.fromGenome!==undefined?VeouresLife.arm({...state,genome:this.fromGenome},i,this.reduced?0:this.wall):arm,p=!this.reduced&&this.genomeChanged?ease((performance.now()-this.genomeChanged)/4000):1;
+   const g=prior.growth+(arm.growth-prior.growth)*p,len=prior.length+(arm.length-prior.length)*p,a=prior.angle+(arm.angle-prior.angle)*p;if(g<.035)continue;count++;
+   const reach=len*u*life.reach,x=this.cx+Math.cos(a)*this.radius*.72,y=this.cy+Math.sin(a)*this.radius*.68;
+   const sway=this.reduced?0:Math.sin(t*(.45+i%3*.16)+i)*.18*life.activity+Math.sin(t*4+i)*life.tremor*.018,angle=a+sway+life.curl*Math.sin(t*.3+i)*.25;
+   const ex=x+Math.cos(angle)*reach,ey=y+Math.sin(angle)*reach*.82,curve=(prior.curvature+(arm.curvature-prior.curvature)*p)*reach*.35+life.curl*reach*.28;
+   c.save();c.globalAlpha=g*.88;this.thread(x,y,ex,ey,(2.4+(i%4)*1.1)*Math.max(.55,u/850)*g,curve);
+   if(i%3===0){const bx=x+(ex-x)*.65,by=y+(ey-y)*.65;this.thread(bx,by,ex+Math.cos(angle+.6)*reach*.26,ey+Math.sin(angle+.6)*reach*.26,1.4*g,-curve*.4)}
+   if(i%5===0&&!this.reduced){c.strokeStyle='#ae507939';c.lineWidth=.7;c.beginPath();c.moveTo(x,y);c.quadraticCurveTo((x+ex)/2+curve,(y+ey)/2,ex,ey);c.stroke()}c.restore();
+  }
+  this.armCount=count;
+ }
+ drawSkinLife(life){
+  if(this.reduced)return;const c=this.ctx,r=this.radius,t=life.t;
+  c.save();const clip=new Path2D();clip.ellipse(this.cx,this.cy,r*.91,r*.75,0,0,TAU);c.clip(clip);
+  for(let i=0;i<5;i++){const p=(t*(.07+i*.012)+i*.21)%1,a=i*2.399+life.swirl,rr=r*(.12+p*.8),x=this.cx+Math.cos(a)*rr*.3,y=this.cy+Math.sin(a)*rr*.4;c.globalAlpha=Math.sin(p*Math.PI)*.12;c.strokeStyle=i%2?'#b9a4c4':'#c64980';c.lineWidth=.7;c.beginPath();c.ellipse(x,y,rr,rr*.65,a,0,TAU);c.stroke()}
+  for(let i=0;i<10;i++){const p=(t*.09+i*.13)%1,a=i*2.4,x=this.cx+Math.cos(a)*r*p*.9,y=this.cy+Math.sin(a)*r*p*.7;c.globalAlpha=Math.sin(p*Math.PI)*.5;c.fillStyle=i%3?'#953359':'#b6a3b7';c.beginPath();c.arc(x,y,Math.max(.6,this.unit*.0012),0,TAU);c.fill()}
+  c.restore();
+ }
+ drawShedding(life){if(this.reduced||life.shedding<.05)return;const c=this.ctx,r=this.radius;c.save();for(let i=0;i<6;i++){const p=(life.t*.09+i*.17)%1,a=i*2.4;c.globalAlpha=Math.sin(p*Math.PI)*life.shedding*.4;const x=this.cx+Math.cos(a)*r*(.8+p*.8),y=this.cy+Math.sin(a)*r*(.7+p*.6);c.fillStyle='#2d1d2b';c.beginPath();c.ellipse(x,y,1+p*3,1+p*2,a,0,TAU);c.fill()}c.restore()}
+ drawTouch(){if(this.reduced||!this.touch)return;const p=(performance.now()-this.touch.start)/1000;if(p>=1){this.touch=null;return}const c=this.ctx;c.save();c.globalAlpha=(1-p)*.45;c.strokeStyle='#a16c87';c.lineWidth=.8;for(let i=0;i<3;i++){c.beginPath();c.ellipse(this.touch.x,this.touch.y,(p*30+i*5),(p*20+i*3),0,0,TAU);c.stroke()}c.restore()}
  drawMass(item,time){
   const c=this.ctx,life=this.life(item);if(life<=.001)return;const[x,y]=this.xy(item.x,item.y),g=this.growth(item.id),size=item.r*this.unit*1.9*Math.sqrt(life)*g;if(size<.3)return;
-  c.save();c.globalAlpha=life*(item.id==='preview'?.65:1);const grad=c.createRadialGradient(x-size*.28,y-size*.4,0,x,y,size);grad.addColorStop(0,'#95839399');grad.addColorStop(.17,'#51424fbb');grad.addColorStop(.48,'#17101bdb');grad.addColorStop(1,'#06060900');c.fillStyle=grad;c.beginPath();c.ellipse(x,y,size,size*(.86+(this.reduced?0:Math.sin(time*1.5)*.015)),0,0,TAU);c.fill();c.restore();
+  c.save();c.globalAlpha=life*(item.id==='preview'?.36:.24);const grad=c.createRadialGradient(x-size*.28,y-size*.4,0,x,y,size);grad.addColorStop(0,'#95839399');grad.addColorStop(.17,'#51424fbb');grad.addColorStop(.48,'#17101bdb');grad.addColorStop(1,'#06060900');c.fillStyle=grad;c.beginPath();c.ellipse(x,y,size,size*(.86+(this.reduced?0:Math.sin(time*1.5)*.015)),0,0,TAU);c.fill();c.restore();
  }
  drawScar(item,time){
   const c=this.ctx,life=this.life(item)*item.intensity;if(life<=.001)return;
@@ -149,7 +186,7 @@ class Renderer {
    lines.forEach((line,k)=>c.fillText(line,rtl?x+width:x,y+k*font*1.35));
    if(!this.reduced&&item.id!=='preview'&&g<1){c.strokeStyle='#c66a8c88';c.beginPath();c.moveTo(x,y+font*5.5);c.lineTo(x+width*g,y+font*5.5);c.stroke()}
   });
-  c.globalAlpha=.6;c.direction='ltr';c.textAlign='left';c.font=`${Math.max(4.5,font)}px system-ui, sans-serif`;c.fillStyle='#aa8e9f';if(this.zoom<2.5)c.fillText('MICROTRACES / ZOOM TO READ',at.x,at.y-font*3);c.restore();
+  c.globalAlpha=.6;c.direction='ltr';c.textAlign='left';c.font=`${Math.max(4.5,font)}px system-ui, sans-serif`;c.fillStyle='#aa8e9f';if(this.zoom<2.5&&!this.engine.exporting)c.fillText('MICROTRACES / ZOOM TO READ',at.x,at.y-font*3);c.restore();
  }
  drawReaction(reaction,time){
   const c=this.ctx,p=clamp((performance.now()-reaction.start)/3200,0,1),at=reaction.item.path?.[Math.floor(reaction.item.path.length/2)]||reaction.item;

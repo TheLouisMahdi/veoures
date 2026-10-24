@@ -1,5 +1,7 @@
 # Architecture
 
+Current autonomous behaviour, four personal-day touches, names and 414-change collection supersede earlier interface/quota details below. See [LIVING_UPDATE.md](LIVING_UPDATE.md).
+
 ## Public hosted edition
 
 The primary public site now uses the vanilla frontend with a dependency-free Worker and durable D1 event/session storage. Its source and schema are in `hosting/`; launch and live verification are recorded in `PUBLIC_LAUNCH.md`. Public access does not require an account or the owner's laptop. Atomic SQL enforces anonymous-session quotas, retries and network limits. The original Node/JSON adapter below remains a local fallback.

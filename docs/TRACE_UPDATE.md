@@ -1,5 +1,7 @@
 # Living traces update
 
+Current autonomous behaviour, four personal-day touches, names and 414-change collection supersede earlier interface/quota details below. See [LIVING_UPDATE.md](LIVING_UPDATE.md).
+
 The public interface now offers Draw Scar, Feed Mass and Write Trace. Former tools are removed from the toolbar and composer; historical events remain replayable. No production data or schema is reset. Existing asset provenance and audio remain unchanged.
 
 ## Behaviour

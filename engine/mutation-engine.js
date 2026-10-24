@@ -30,7 +30,7 @@
     }
     return h >>> 0;
   }
-  function normalize(type, payload) {
+  function normalizePayload(type, payload) {
     if (!TYPES.includes(type)) throw new Error('Unknown mutation type');
     if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid payload');
     if (type === 'draw_scar') {
@@ -70,6 +70,18 @@
     }
     return at;
   }
+  const DAY=86400000, LIMIT=4, EDITION_SIZE=414;
+  function authorName(value) {
+    if (value === undefined || value === '') return '';
+    if (typeof value !== 'string') throw Error('Use a name of up to 32 characters');
+    const name=value.normalize('NFC').trim().replace(/\s+/gu,' ');
+    if(Array.from(name).length>32 || /[<>\p{Cc}\p{Cs}\p{Co}\p{Cn}\u202a-\u202e\u2066-\u2069]/u.test(name))throw Error('Use a name of up to 32 characters without markup');
+    return name;
+  }
+  function normalize(type,payload){const data=normalizePayload(type,payload),author=authorName(payload.author);return author?{...data,author}:data}
+  // A private random identity chooses one daily reset minute, stable across refreshes.
+  function quotaWindow(identity,now=Date.now()) {const offset=hash(identity)%DAY,start=Math.floor((now-offset)/DAY)*DAY+offset;return{limit:LIMIT,start,resetAt:start+DAY}}
+  function traits(genome){const n=i=>hash(String(genome)+':'+i)/4294967295;return{lobes:4+Math.floor(n(0)*6),stretch:.75+n(1)*.5,arms:16+Math.floor(n(2)*25),reach:.65+n(3)*.65,branches:1+Math.floor(n(4)*3),hue:330+n(5)*35,pace:.65+n(6)*.8,fold:n(7),spine:n(8),orbit:n(9)}}
   function seed() {
     return {
       id: 'veoures-001', epoch: 1, bornAt: '2026-10-23T00:00:00.000Z', version: 0,
@@ -86,7 +98,7 @@
       ],
       buds: [], scars: [], corruptions: [], texts: [],
       mood: { tone: 'curious', pulse: .42, hue: 0 },
-      totalContributions: 0, recent: []
+      totalContributions: 0, recent: [], genome:hash('veoures-001'), editions:[], makers:[]
     };
   }
   function bounded(items, limit) { if (items.length > limit) items.splice(0, items.length - limit); }
@@ -103,11 +115,14 @@
     if (!event || !Number.isInteger(event.version) || event.version !== state.version + 1) throw new Error('Out of sequence mutation');
     const payload = normalize(event.type, event.payload);
     const id = String(event.id || 'evt-' + event.version);
-    const jitter = hash(event.type + JSON.stringify(payload)) / 4294967295;
+    const {author,...anatomy}=payload;
+    const jitter = hash(event.type + JSON.stringify(anatomy)) / 4294967295;
     const x = payload.x ?? payload.path?.[0].x ?? .5;
     const y = payload.y ?? payload.path?.[0].y ?? .5;
     state.texts ||= [];
     const createdAt = event.createdAt || new Date(0).toISOString();
+    state.genome=hash(String(state.genome??hash('veoures-001'))+':'+event.version+':'+event.type+':'+JSON.stringify(anatomy));
+    state.editions ||= [];state.makers ||= [];if(author&&!state.makers.includes(author))state.makers.push(author);
     if (event.type === 'draw_scar') {
       state.scars.push({ id, path: payload.path, intensity: 1 });
     } else if (event.type === 'leave_text') {
@@ -139,8 +154,9 @@
     }
     state.version = event.version;
     state.totalContributions += 1;
-    state.recent.unshift({ id, type: event.type, x, y, createdAt, ...(payload.text ? { text: payload.text } : {}) });
+    state.recent.unshift({ id, type: event.type, x, y, createdAt, ...(payload.text ? { text: payload.text } : {}), ...(author?{author}:{}) });
     state.recent.length = Math.min(state.recent.length, 30);
+    if(state.totalContributions%EDITION_SIZE===0){state.editions.push({number:state.totalContributions/EDITION_SIZE,version:state.version,genome:state.genome,createdAt,makers:[...state.makers]});state.makers=[];}
     return state;
   }
   // Presentation ages; the accepted event log is never deleted or rewritten.
@@ -151,5 +167,5 @@
     const p = Math.min(1, age / LIFETIME);
     return Math.pow(1 - p, 1.35);
   }
-  return { TYPES, ACTIVE_TYPES, LIFETIME, life, KINDS, normalize, apply, seed, clone, hash };
+  return { TYPES, ACTIVE_TYPES, LIFETIME, life, KINDS, normalize, authorName, quotaWindow, traits, LIMIT, EDITION_SIZE, apply, seed, clone, hash };
 });

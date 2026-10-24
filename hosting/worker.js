@@ -32,12 +32,13 @@ function publicEvent(row){return{id:row.id,version:row.version,type:row.type,pay
 async function readOrganism(request,db,url){
   const since=Number(url.searchParams.get('since')||0);if(!Number.isSafeInteger(since)||since<0)return json(400,{error:'Invalid version'});
   const now=Date.now(),day=new Date(now).toISOString().slice(0,10),net=await network(db,request,day),who=await session(db,request,net,now,true);
+  const window=mutation.quotaWindow(who?.id||'unavailable',now),sinceTime=new Date(window.start).toISOString();
   const [head,events,owned]=await db.batch([
     db.prepare('SELECT COALESCE(MAX(version),0) AS version FROM events'),
     db.prepare('SELECT id,version,type,payload,created_at FROM events WHERE version>? ORDER BY version').bind(since),
-    db.prepare('SELECT id,created_at,request_id FROM events WHERE visitor=? AND created_at>=? ORDER BY version').bind(who?.id||'',day)
+    db.prepare('SELECT id,created_at,request_id FROM events WHERE visitor=? AND created_at>=? ORDER BY version').bind(who?.id||'',sinceTime)
   ]);
-  return json(200,{epoch:1,serverTime:now,version:head.results[0].version,events:events.results.map(publicEvent),owned:owned.results.map(r=>({id:r.id,createdAt:r.created_at,requestId:r.request_id})),canContribute:!!who},who?.cookie?{'Set-Cookie':who.cookie}:{});
+  return json(200,{epoch:1,serverTime:now,version:head.results[0].version,events:events.results.map(publicEvent),owned:owned.results.map(r=>({id:r.id,createdAt:r.created_at,requestId:r.request_id})),canContribute:!!who,quota:{...window,remaining:Math.max(0,mutation.LIMIT-owned.results.length)}},who?.cookie?{'Set-Cookie':who.cookie}:{});
 }
 async function commit(request,db,url){
   if(request.headers.get('Origin')!==url.origin||request.headers.get('Sec-Fetch-Site')==='cross-site')return json(403,{error:'Open VEOURES directly to contribute.'});
@@ -50,6 +51,7 @@ async function commit(request,db,url){
   let input,payload;try{input=JSON.parse(new TextDecoder().decode(bytes));if(!input||typeof input.type!=='string'||!/^[A-Za-z0-9_-]{8,96}$/.test(input.requestId||''))throw Error('Invalid change or request ID');payload=mutation.normalize(input.type,input.payload)}catch(error){return json(400,{error:error.message||'Invalid request'})}
   const now=Date.now(),day=new Date(now).toISOString().slice(0,10),net=await network(db,request,day),who=await session(db,request,net,now,false);
   if(!who)return json(401,{error:'Reload to start a contribution session. Cookies must be enabled.'});
+  const window=mutation.quotaWindow(who.id,now),sinceTime=new Date(window.start).toISOString();
   const body=JSON.stringify(payload),createdAt=new Date(now).toISOString();
   const previous=await db.prepare('SELECT * FROM events WHERE visitor=? AND request_id=?').bind(who.id,input.requestId).first();
   if(previous){if(previous.type!==input.type||previous.payload!==body)return json(409,{error:'This request ID already belongs to a different change'});return json(200,{event:publicEvent(previous)})}
@@ -58,17 +60,14 @@ async function commit(request,db,url){
     db.prepare(`INSERT INTO events(id,visitor,network,request_id,created_at,created_ms,type,payload)
       SELECT ?,?,?,?,?,?,?,?
       WHERE NOT EXISTS(SELECT 1 FROM events WHERE visitor=? AND request_id=?)
-      AND (SELECT COUNT(*) FROM events WHERE visitor=? AND created_at>=?)<5
+      AND (SELECT COUNT(*) FROM events WHERE visitor=? AND created_at>=?)<4
       AND (SELECT COUNT(*) FROM events WHERE network=? AND created_at>=?)<100
-      AND NOT EXISTS(SELECT 1 FROM events WHERE network=? AND created_ms>?)
-      AND (SELECT COUNT(*) FROM events)<10000`).bind(crypto.randomUUID(),who.id,net,input.requestId,createdAt,now,input.type,body,who.id,input.requestId,who.id,day,net,day,net,now-700),
+      AND NOT EXISTS(SELECT 1 FROM events WHERE network=? AND created_ms>?)`).bind(crypto.randomUUID(),who.id,net,input.requestId,createdAt,now,input.type,body,who.id,input.requestId,who.id,sinceTime,net,day,net,now-700),
     db.prepare('SELECT * FROM events WHERE visitor=? AND request_id=?').bind(who.id,input.requestId)
   ]);
   const row=accepted.results[0];if(row){if(row.type!==input.type||row.payload!==body)return json(409,{error:'This request ID already belongs to a different change'});return json(insert.meta.changes?201:200,{event:publicEvent(row)})}
-  const count=await db.prepare('SELECT COUNT(*) AS count FROM events WHERE visitor=? AND created_at>=?').bind(who.id,day).first();
-  if(count.count>=5)return json(429,{error:'No changes left today. Return tomorrow (UTC).'});
-  const total=await db.prepare('SELECT COUNT(*) AS count FROM events').first();
-  if(total.count>=10000)return json(503,{error:'This organism is full. Contributions are paused; the body is preserved.'});
+  const count=await db.prepare('SELECT COUNT(*) AS count FROM events WHERE visitor=? AND created_at>=?').bind(who.id,sinceTime).first();
+  if(count.count>=4)return json(429,{error:'Your four changes are resting. The next opening is shown below.',quota:{...window,remaining:0}});
   return json(429,{error:'Please slow down. This network may have reached its daily contribution limit.'},{'Retry-After':'1'});
 }
 function asset(request,url){

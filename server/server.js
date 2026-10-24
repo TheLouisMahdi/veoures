@@ -84,12 +84,12 @@ const server = http.createServer(async (req, res) => {
     const since = Number(url.searchParams.get('since') || 0);
     if (!Number.isSafeInteger(since) || since < 0) return send(res, 400, { error: 'Invalid version' });
     const token = visitor(req);
-    const today = new Date().toISOString().slice(0, 10);
-    const owned = token ? (db.visitors[token]?.day === today ? db.events.filter(e => e.visitor === token && e.createdAt.startsWith(today)).map(({ id, createdAt, requestId }) => ({ id, createdAt, ...(requestId ? {requestId} : {}) })) : []) : [];
+    const window=mutation.quotaWindow(token||'unavailable'),sinceTime=new Date(window.start).toISOString();
+    const owned=token?db.events.filter(e=>e.visitor===token&&e.createdAt>=sinceTime).map(({id,createdAt,requestId})=>({id,createdAt,...(requestId?{requestId}:{})})):[];
     return send(res, 200, {
       epoch: db.epoch, serverTime: Date.now(), version: db.events.length,
       events: db.events.filter(e => e.version > since).map(({ visitor: _visitor, requestId: _requestId, ...publicEvent }) => publicEvent),
-      owned
+      owned, quota:{...window,remaining:Math.max(0,4-owned.length)}
     });
   }
   if (url.pathname === '/api/mutations' && req.method === 'POST') {
@@ -109,12 +109,10 @@ const server = http.createServer(async (req, res) => {
         return send(res,200,{event});
       }
       if (!throttle(token)) return send(res,429,{error:'Please slow down before making another change'});
-      const day = new Date().toISOString().slice(0, 10);
-      const daily = db.visitors[token];
-      if (daily?.day === day && daily.count >= 5) return send(res, 429, { error: 'No changes left today (UTC)' });
-      if (db.events.length >= 10000) return send(res, 503, { error: 'This organism epoch is full; contact the operator' });
+      const window=mutation.quotaWindow(token),count=db.events.filter(e=>e.visitor===token&&Date.parse(e.createdAt)>=window.start).length;
+      if(count>=4)return send(res,429,{error:'Your four changes are resting.',quota:{...window,remaining:0}});
       const event = { id: crypto.randomUUID(), version: db.events.length + 1, type: input.type, payload, createdAt: new Date().toISOString(), visitor: token, ...(requestId ? {requestId} : {}) };
-      const next = { ...db, events: [...db.events, event], visitors: { ...db.visitors, [token]: { day, count: (daily?.day === day ? daily.count : 0) + 1 } } };
+      const next = { ...db, events: [...db.events, event], visitors: { ...db.visitors, [token]: {start:window.start,count:count+1} } };
       try { save(next); } catch { return send(res,503,{error:'Storage unavailable. Change was not accepted.'}); }
       const { visitor: _visitor, requestId: _requestId, ...publicEvent } = event;
       return send(res, 201, { event: publicEvent });

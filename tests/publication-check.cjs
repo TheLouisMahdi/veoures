@@ -10,5 +10,5 @@ for(const name of ['server','tests','docs','.git','.github','.env','organism-dat
 const card=fs.readFileSync(path.join(site,'assets/brand/social-card.png'));assert.equal(card.readUInt32BE(16),1200);assert.equal(card.readUInt32BE(20),630);
 assert(fs.existsSync(path.join(site,'.nojekyll')));
 assert(fs.readFileSync(path.join(site,'data/ui-copy.json'),'utf8').includes('LOCAL DEMO - Only this browser remembers.'));
-assert(fs.readFileSync(path.join(root,'README.md'),'utf8').includes('GitHub Pages keeps a local fallback.'));
+assert(fs.readFileSync(path.join(root,'README.md'),'utf8').includes('414 accepted shared changes'));assert(!fs.readFileSync(path.join(root,'README.md'),'utf8').includes('node server/server.js'));
 console.log('PASS VEOURES metadata, 1200x630 brand card, local references, honest local mode and public artifact exclusions');

@@ -1,0 +1,12 @@
+/* Deterministic, continuous behaviour: no new shared mutations or quota are created by idle life. */
+(function(root,factory){const api=factory(root.VeouresMutation||(typeof require==='function'?require('./mutation-engine.js'):null));if(typeof module!=='undefined'&&module.exports)module.exports=api;root.VeouresLife=api})(globalThis,function(M){
+'use strict';
+const mix=(a,b,p)=>a+(b-a)*p,smooth=p=>p*p*(3-2*p),noise=(time,seed)=>{const k=Math.floor(time),p=smooth(time-k),n=x=>M.hash(seed+':'+x)/4294967295;return mix(n(k),n(k+1),p)};
+const moods=['drifting','unfurling','listening','coiling','blooming','shivering','resting','searching','stretching','shedding','spiralling','contracting','awakening'];
+const actions={drifting:[.6,0,1,1,0,0],unfurling:[1,.4,1.2,1.05,0,0],listening:[.4,.6,.8,.94,0,0],coiling:[.85,1.4,.74,.86,0,0],blooming:[1.15,-.4,1.3,1.08,0,0],shivering:[1.6,.1,.9,.96,1,0],resting:[.18,.6,.65,.84,0,0],searching:[1.2,.5,1.15,1,0,0],stretching:[1.1,-.8,1.2,1.28,0,0],shedding:[.8,.4,.86,1,0,1],spiralling:[1.1,1.5,1.18,1,0,0],contracting:[.8,1.2,.6,.74,0,0],awakening:[1.4,-.6,1.3,1.12,0,0]};
+function sample(state,now,width,height,reduced=false){const t=now/1000,seed=String(state.genome),dna=M.traits(state.genome),phase=Math.floor(t/23),mood=moods[M.hash(seed+':mood:'+phase)%moods.length],before=moods[M.hash(seed+':mood:'+(phase-1))%moods.length],weight=smooth(Math.min(1,(t%23)/5)),parameters=actions[mood].map((v,i)=>mix(actions[before][i],v,weight));
+return {t,dna,mood,phase,reduced,pose:reduced?{x:0,y:0,angle:0}:{x:(noise(t/38,'drift-x')-.5)*Math.min(width*.28,200),y:(noise(t/43,'drift-y')-.5)*Math.min(height*.24,180),angle:(noise(t/32,'turn')-.5)*.65},breath:reduced?1:1+Math.sin(t*dna.pace*1.8)*.035*parameters[0],activity:parameters[0],curl:reduced?0:parameters[1],reach:reduced?1:parameters[2],stretch:reduced?1:parameters[3],tremor:reduced?0:parameters[4],shedding:reduced?0:parameters[5],swirl:reduced?0:(noise(t/13,seed+':swirl')-.5)*2};}
+
+function arm(state,index,now){const t=now/1000,dna=M.traits(state.genome),seed=String(state.genome)+':arm:'+index;const a=index*2.399963+noise(t/19,seed+':angle')*.6;const growth=smooth(Math.max(0,Math.min(1,(dna.arms*.74-index)/7+noise(t/11,seed+':growth')*1.7-.6)));return{angle:a,length:(.09+noise(t/17,seed+':reach')*.22)*dna.reach*growth,curvature:(noise(t/15,seed+':curve')-.5)*2.6,growth,splits:dna.branches};}
+return{sample,arm,noise,moods};
+});
