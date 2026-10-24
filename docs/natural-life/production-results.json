@@ -1,0 +1,16 @@
+{
+  "result": "PASS read-only production",
+  "version": 13,
+  "twoIndependentClients": true,
+  "tools": 3,
+  "heartbeatOptIn": true,
+  "rankings": true,
+  "errors": [],
+  "bad": [],
+  "applicationWrites": [],
+  "platformChallengeRequests": 2,
+  "screenshots": [
+    "production-390.png",
+    "production-1440.png"
+  ]
+}

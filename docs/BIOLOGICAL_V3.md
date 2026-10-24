@@ -1,3 +1,5 @@
+> Updated by [Natural Life](NATURAL_LIFE.md): paired heartbeat audio, inertial movement, constrained tendrils and diffused feeding. Initial V3 measurements below are retained; the newer report gives current timing and build values.
+
 # Biological Evolution V3 — 24 October 2026
 
 The existing vanilla Canvas organism is extended in place. Its birth timestamp, accepted log, personal four-touch day, old surface traces and 414-change collection descriptors are preserved. The root README remains a visitor guide.
@@ -26,7 +28,7 @@ An 8×8 regional map remembers accepted activity, density, limbs, eyes, connecti
 
 - Mass matures over **8–24 hours**, eyes **24–48 hours**, limbs **36–72 hours**, deterministically chosen at acceptance. Initial attachment feedback lasts about 3.2 seconds. Organs then grow from accepted timestamps, including while the tab is closed.
 - Five gradual stages combine elapsed time and accepted history: configured thresholds at 0/12/36/72/168 hours and 0/4/12/24/48 contributions. Stage names are Primordial, Cellular growth, Structural development, Sensory development and Complex organism. Membrane folds, tissue, fibres and sensory organs develop within one scene; there is no scene swap or creature reset.
-- The healthy existing approximately **74 BPM** baseline remains. Growing organs contribute a smooth two-hour response, bounded to five additional artistic BPM; mature mass slightly changes apparent breathing, and growth adds subtle pulse/tension. Limb phases and eye blinks are independent. The pre-existing continuous mood/rest/drift system remains.
+- The healthy existing approximately **74 BPM** baseline remains. The Natural Life update uses gentle beat-to-beat timing variation around the existing baseline, a shared visual/audio phase and a contracting core. Mass changes apparent breathing and inertial load; it does not restart or abruptly accelerate the heart clock. Limb phases and eye blinks are independent. The pre-existing continuous mood/rest/drift system remains.
 - Historical inspection rebuilds an event prefix and uses its selected timestamp for anatomy, maturity, materials and motion phases. It is read-only. Existing collection descriptors and legacy rendering methods are regression checked against the prior commit; legacy lifecycle cleanup is fixed without changing drawing methods. New forms record biological-renderer version 3. Portrait export waits for local assets and produces untainted 1600×1600 PNGs.
 - Biological time never writes per-frame/per-second database updates. Only accepted contributions and explicit identity preferences write persistent data.
 

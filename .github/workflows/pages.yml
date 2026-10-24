@@ -33,6 +33,8 @@ jobs:
         run: node tests/reducer-check.cjs
       - name: Verify biological geometry and original pack inventory
         run: node tests/biology-check.cjs
+      - name: Verify natural heartbeat and inertial dynamics
+        run: node tests/natural-life-check.cjs
       - name: Verify shared server
         run: node tests/server-smoke.cjs
       - name: Package public shared Worker

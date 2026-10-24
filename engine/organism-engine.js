@@ -18,7 +18,7 @@
     }
     status() {
       const s = this.state;
-      return { age: Math.max(0, Math.floor((this.now()-Date.parse(s.bornAt))/3600000))+' h', version: s.version, mutations: s.totalContributions, limbs: s.limbs.length, eyes:s.eyes.length,scars: s.scars.filter(i => i.intensity > 0 && mutation.life(i,this.now()) > .002).length, buds: s.buds.length, mass: s.mass.filter(i => i.schema===3||mutation.life(i,this.now()) > .002).length, texts: s.texts.filter(i => mutation.life(i,this.now()) > .002).length, pulse: Math.round(52 + s.mood.pulse * 52+VeouresBody.vitals(s,this.now()).pulse), mood: s.mood.tone };
+      return { age: Math.max(0, Math.floor((this.now()-Date.parse(s.bornAt))/3600000))+' h', version: s.version, mutations: s.totalContributions, limbs: s.limbs.length, eyes:s.eyes.length,scars: s.scars.filter(i => i.intensity > 0 && mutation.life(i,this.now()) > .002).length, buds: s.buds.length, mass: s.mass.filter(i => i.schema===3||mutation.life(i,this.now()) > .002).length, texts: s.texts.filter(i => mutation.life(i,this.now()) > .002).length, pulse: Math.round(VeouresBody.heartbeat(s,this.now()).bpm), mood: s.mood.tone };
     }
   }
   root.VeouresOrganism = OrganismEngine;

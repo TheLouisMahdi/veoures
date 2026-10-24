@@ -12,7 +12,7 @@ Begin with **Observe**. There is nothing to win and no prescribed meaning. Let t
 
 - **Grow Limb** — choose tissue inside the membrane for an internal fibre, or its edge for an outward appendage. Choose a variation or let the tissue decide.
 - **Grow Eye** — place an eye in a clear area of living tissue. Its socket begins as a bud, opens gradually and develops its own blink and gaze.
-- **Feed Mass** — offer volume to a region. It thickens the tissue and gently swells the skin, supporting nearby organs.
+- **Feed Mass** — offer volume to a region. Thin black streams disappear into the tissue, spread and support nearby organs. The body gains weight without a separate swollen bubble.
 
 You can cancel any preview without spending a touch. Add your name before committing if you want a public credit; leaving it empty keeps the contribution anonymous.
 
@@ -26,7 +26,7 @@ New tissue develops over **8–24 hours**, eyes over **24–48 hours**, and limb
 
 Use +/−, the mouse wheel or two fingers to zoom. **Move view** lets you drag the scene; **Observe** returns to the whole creature. Keyboard users can select a tool, focus the creature, use arrows to choose a point, then Enter to preview. Inspect lists recent changes, status and a read-only time slider. Move through its history to see what the body was becoming, then return to the living present. Older writing can still be explored with Read traces.
 
-Sound begins off. Turn it on only when you want to listen. Reduced-motion preferences are respected.
+Sound begins off. Turn it on to hear the soft paired heartbeat inside the core, in time with its small contractions. Reduced-motion preferences are respected.
 
 ## From a living form to a collection
 
